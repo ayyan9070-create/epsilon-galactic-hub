@@ -8,57 +8,57 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Deep space theme - nebula colors */
-    --background: 265 100% 4%;
-    --foreground: 270 20% 95%;
+    /* Deep space theme - cooler navy blues */
+    --background: 230 35% 7%;
+    --foreground: 0 0% 95%;
 
-    --card: 265 70% 8%;
-    --card-foreground: 270 20% 95%;
+    --card: 230 25% 12%;
+    --card-foreground: 0 0% 95%;
 
-    --popover: 265 70% 8%;
-    --popover-foreground: 270 20% 95%;
+    --popover: 230 25% 12%;
+    --popover-foreground: 0 0% 95%;
 
-    /* Electric magenta/pink primary */
-    --primary: 320 100% 60%;
+    /* Blue-violet primary */
+    --primary: 250 70% 60%;
     --primary-foreground: 0 0% 100%;
 
-    /* Deep purple secondary */
-    --secondary: 270 60% 25%;
-    --secondary-foreground: 270 20% 95%;
+    /* Deep navy secondary */
+    --secondary: 230 30% 20%;
+    --secondary-foreground: 0 0% 95%;
 
-    --muted: 265 40% 15%;
-    --muted-foreground: 270 10% 60%;
+    --muted: 230 25% 18%;
+    --muted-foreground: 220 10% 65%;
 
-    /* Vivid accent colors */
-    --accent: 290 100% 65%;
+    /* Subtle violet accent */
+    --accent: 260 60% 55%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 270 30% 20%;
-    --input: 270 30% 15%;
-    --ring: 320 100% 60%;
+    --border: 230 25% 25%;
+    --input: 230 25% 18%;
+    --ring: 250 70% 60%;
 
     --radius: 0.75rem;
 
-    /* Custom space colors */
-    --nebula-pink: 330 100% 70%;
-    --nebula-purple: 270 80% 50%;
-    --nebula-magenta: 320 100% 60%;
-    --deep-space: 265 100% 4%;
-    --star-glow: 290 100% 80%;
+    /* Custom space colors - cooler tones */
+    --nebula-blue: 240 80% 60%;
+    --nebula-purple: 260 70% 55%;
+    --nebula-violet: 270 60% 50%;
+    --deep-space: 230 35% 7%;
+    --star-glow: 250 80% 70%;
     
-    /* Gradients */
-    --gradient-nebula: linear-gradient(135deg, hsl(320 100% 60%), hsl(270 80% 50%));
-    --gradient-space: linear-gradient(180deg, hsl(265 100% 4%), hsl(270 60% 10%));
-    --gradient-hero: linear-gradient(135deg, hsl(320 100% 60% / 0.3), hsl(270 80% 50% / 0.3));
+    /* Gradients - cooler palette */
+    --gradient-nebula: linear-gradient(135deg, hsl(240 70% 50%), hsl(260 60% 45%));
+    --gradient-space: linear-gradient(180deg, hsl(230 35% 7%), hsl(235 30% 12%));
+    --gradient-hero: linear-gradient(135deg, hsl(240 70% 50% / 0.3), hsl(260 60% 45% / 0.3));
     
-    /* Shadows and glows */
-    --glow-pink: 0 0 30px hsl(320 100% 60% / 0.5);
-    --glow-purple: 0 0 30px hsl(270 80% 50% / 0.5);
-    --glow-text: 0 0 20px hsl(320 100% 60% / 0.6);
-    --shadow-card: 0 10px 40px hsl(320 100% 60% / 0.2);
+    /* Shadows and glows - blue tones */
+    --glow-blue: 0 0 30px hsl(240 80% 60% / 0.4);
+    --glow-purple: 0 0 30px hsl(260 70% 55% / 0.4);
+    --glow-text: 0 0 20px hsl(250 70% 60% / 0.5);
+    --shadow-card: 0 10px 40px hsl(240 70% 50% / 0.15);
   }
 }
 
@@ -69,7 +69,7 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
-    background: linear-gradient(180deg, hsl(265 100% 4%), hsl(270 60% 8%));
+    background: linear-gradient(180deg, hsl(230 35% 7%), hsl(235 30% 12%));
     min-height: 100vh;
   }
 
@@ -85,8 +85,8 @@ All colors MUST be HSL.
   }
 
   @keyframes glow-pulse {
-    0%, 100% { filter: drop-shadow(0 0 20px hsl(320 100% 60% / 0.6)); }
-    50% { filter: drop-shadow(0 0 40px hsl(320 100% 60% / 0.9)); }
+    0%, 100% { filter: drop-shadow(0 0 20px hsl(250 70% 60% / 0.5)); }
+    50% { filter: drop-shadow(0 0 40px hsl(250 70% 60% / 0.8)); }
   }
 
   /* Scrollbar styling */
@@ -95,34 +95,34 @@ All colors MUST be HSL.
   }
 
   ::-webkit-scrollbar-track {
-    background: hsl(265 70% 8%);
+    background: hsl(230 25% 12%);
   }
 
   ::-webkit-scrollbar-thumb {
-    background: hsl(320 100% 60%);
+    background: hsl(250 70% 60%);
     border-radius: 5px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: hsl(320 100% 70%);
+    background: hsl(250 70% 70%);
   }
 }
 
 @layer utilities {
   .text-glow {
-    text-shadow: 0 0 20px hsl(320 100% 60% / 0.6), 0 0 40px hsl(320 100% 60% / 0.4);
+    text-shadow: 0 0 20px hsl(250 70% 60% / 0.5), 0 0 40px hsl(250 70% 60% / 0.3);
   }
 
   .text-glow-purple {
-    text-shadow: 0 0 20px hsl(270 80% 50% / 0.6), 0 0 40px hsl(270 80% 50% / 0.4);
+    text-shadow: 0 0 20px hsl(260 70% 55% / 0.5), 0 0 40px hsl(260 70% 55% / 0.3);
   }
 
   .card-glow {
-    box-shadow: 0 10px 40px hsl(320 100% 60% / 0.2), 0 0 20px hsl(270 80% 50% / 0.1);
+    box-shadow: 0 10px 40px hsl(240 70% 50% / 0.15), 0 0 20px hsl(260 60% 45% / 0.1);
   }
 
   .input-glow {
-    box-shadow: inset 0 0 20px hsl(270 80% 50% / 0.2), 0 0 10px hsl(320 100% 60% / 0.3);
+    box-shadow: inset 0 0 20px hsl(240 60% 40% / 0.2), 0 0 10px hsl(250 70% 60% / 0.2);
   }
 
   .animate-glow {
@@ -134,10 +134,10 @@ All colors MUST be HSL.
   }
 
   .gradient-nebula {
-    background: linear-gradient(135deg, hsl(320 100% 60%), hsl(270 80% 50%));
+    background: linear-gradient(135deg, hsl(240 70% 50%), hsl(260 60% 45%));
   }
 
   .gradient-space {
-    background: linear-gradient(180deg, hsl(265 100% 4%), hsl(270 60% 10%));
+    background: linear-gradient(180deg, hsl(230 35% 7%), hsl(235 30% 12%));
   }
 }
