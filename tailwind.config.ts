@@ -48,9 +48,9 @@ export default {
           foreground: "hsl(var(--card-foreground))",
         },
         nebula: {
-          pink: "hsl(var(--nebula-pink))",
+          blue: "hsl(var(--nebula-blue))",
           purple: "hsl(var(--nebula-purple))",
-          magenta: "hsl(var(--nebula-magenta))",
+          violet: "hsl(var(--nebula-violet))",
         },
         space: {
           deep: "hsl(var(--deep-space))",
