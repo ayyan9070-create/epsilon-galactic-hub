@@ -6,75 +6,141 @@ import { ChevronDown, ChevronUp } from "lucide-react";
 const modules = [
   {
     id: 1,
-    name: "Robotics Challenge",
-    description: "Design and build autonomous robots to complete complex tasks.",
-    details: "Teams will design, build, and program robots to navigate obstacle courses, manipulate objects, and complete mission-critical tasks. Focus on mechanical design, sensor integration, and autonomous navigation algorithms.",
+    category: "General Modules",
+    name: "AREA 51",
+    description: "A module where quizzes and puzzles will meet practicality, testing logical reasoning and deduction prowess.",
+    details: [
+      "Focuses on logic, deduction, and problem-solving through practical and FUN challenges.",
+      "Involves mazes, and scavenger hunts that blend reasoning with activity.",
+      "Designed to test a participant's analytical and situational thinking.",
+      "It's mostly based on real time thinking since the module itself is a mystery for the participants."
+    ],
+    gallery: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
   },
   {
     id: 2,
-    name: "AI & Machine Learning",
-    description: "Develop intelligent systems using cutting-edge AI techniques.",
-    details: "Create machine learning models for real-world applications. Topics include computer vision, natural language processing, neural networks, and predictive analytics. Use popular frameworks like TensorFlow and PyTorch.",
+    category: "General Modules",
+    name: "Cicada 3301",
+    description: "Module based on Criminology, Intelligence Analysis, and Criminal Investigation.",
+    details: [
+      "Based on criminology, intelligence analysis, and real-world problem-solving, inspired by both real and fictional investigations.",
+      "Participants will unravel complex cases involving cybercrime, fraud, espionage, or data leaks through logical deduction and evidence interpretation.",
+      "Emphasizes a well-structured, interactive storyline that challenges participants to think like investigators rather than detectives of violent crime.",
+      "Requires keen interest in crime-related media and fictional writing to create engaging mysteries."
+    ],
+    gallery: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
   },
   {
     id: 3,
-    name: "Cybersecurity",
-    description: "Defend against digital threats and secure critical systems.",
-    details: "Learn offensive and defensive security techniques. Challenges include penetration testing, cryptography, network security, and incident response. Compete in Capture The Flag (CTF) style competitions.",
+    category: "General Modules",
+    name: "Cerebral Labyrinth",
+    description: "General trivia-based brain games demanding sharp intellect and wide-ranging general knowledge.",
+    details: [
+      "A general trivia and brain game module emphasizing quick thinking and wide knowledge.",
+      "Focused on intellectual flexibility, memory, and reasoning.",
+      "Includes quizzes, logic games, and rapid-fire challenges.",
+      "Engages participants in competitive, high-energy mental rounds.",
+      "Module head should design balanced difficulty levels for accessibility and challenge."
+    ],
+    gallery: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
   },
   {
     id: 4,
-    name: "IoT Innovation",
-    description: "Build connected devices for smart solutions.",
-    details: "Design Internet of Things systems integrating sensors, actuators, and cloud platforms. Create smart home solutions, environmental monitoring systems, and industrial IoT applications.",
+    category: "Subject-Related Modules",
+    name: "Biochem Module",
+    description: "Comprehensive biology and chemistry module with hands-on experiments.",
+    details: [
+      "Bio Section: Assembles all aspects of biology under one umbrella, testing theoretical and practical knowledge.",
+      "Provides hands-on experience through various experiments including titrations, dissections, and questionnaires.",
+      "Chem Section: Invites participants to immerse in chemistry through thrilling experiments.",
+      "Success hinges on deep knowledge of chemistry's practical aspects and creativity in experiments.",
+      "Makes chemistry come alive through innovative and engaging activities."
+    ],
+    gallery: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
   },
   {
     id: 5,
-    name: "Data Science",
-    description: "Extract insights from complex datasets.",
-    details: "Analyze large datasets using statistical methods and visualization tools. Perform exploratory data analysis, build predictive models, and communicate findings through compelling visualizations.",
+    category: "Subject-Related Modules",
+    name: "Robosonic (Robotics)",
+    description: "Versatile module based on the construction of robots using Arduino and various components.",
+    details: [
+      "Requires knowledge of Arduino, L298 motor drivers, DC motors, relays, and sensors (infrared and ultrasonic).",
+      "Tests time management, critical thinking, and analytical skills side by side.",
+      "Understanding of Bluetooth modules (HC05 being an example) is essential.",
+      "All required skills are tested in a battle amongst the participants.",
+      "Focus on hands-on construction and real-world robotics applications."
+    ],
+    gallery: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
   },
   {
     id: 6,
-    name: "Web Development",
-    description: "Create innovative web applications.",
-    details: "Build full-stack web applications using modern frameworks. Focus on responsive design, user experience, API development, and deployment strategies. Technologies include React, Node.js, and cloud platforms.",
+    category: "Subject-Related Modules",
+    name: "Autocode (Programming)",
+    description: "Takes you into the vast world of coding with problem-solving and time management challenges.",
+    details: [
+      "Tests programming skills along with time management and problem-solving.",
+      "Experience in mainstream programming gives an edge.",
+      "Focuses on knowledge of filing, sorting, strings, and arrays.",
+      "Basic mathematical skills are a necessity.",
+      "Challenges designed to test practical coding ability under pressure."
+    ],
+    gallery: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
   },
   {
     id: 7,
-    name: "Mobile App Development",
-    description: "Design apps for iOS and Android platforms.",
-    details: "Create cross-platform mobile applications with native performance. Learn mobile UI/UX design principles, state management, and integration with device features and backend services.",
+    category: "Subject-Related Modules",
+    name: "Psychosphere (Psychology)",
+    description: "Module revolving around pure psychology testing understanding of famous studies and breakthroughs.",
+    details: [
+      "Knowledge of famous psychological studies: Milgram, Skinner, Andrade, Bandura, and Laney required.",
+      "Understanding of major breakthroughs like Freud, Watson, and Zimbardo is essential.",
+      "Research methods and ethics to consider while preparing experiments are crucial.",
+      "Ability to deduce causes of specific patterns of behavior is indispensable.",
+      "Does not mandate psychology as a subject but tests on a comprehensive scale."
+    ],
+    gallery: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
   },
   {
     id: 8,
-    name: "Biotech Innovation",
-    description: "Apply technology to biological challenges.",
-    details: "Explore the intersection of biology and technology. Projects may include bioinformatics, genetic algorithms, medical device prototyping, and computational biology.",
+    category: "Subject-Related Modules",
+    name: "Escherian Stairwell (Physics)",
+    description: "Hands-on construction module diving into functional device creation.",
+    details: [
+      "Participants dive into the world of hands-on construction with various materials.",
+      "Embark on the challenge of creating functional devices.",
+      "Demands solid understanding of physics principles.",
+      "Requires use of mechanical tools and creativity.",
+      "Create unique and gravity-defying constructions."
+    ],
+    gallery: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
   },
   {
     id: 9,
-    name: "Renewable Energy",
-    description: "Engineer sustainable energy solutions.",
-    details: "Design and optimize renewable energy systems. Challenges include solar panel efficiency, wind turbine design, energy storage solutions, and smart grid integration.",
+    category: "Subject-Related Modules",
+    name: "Euclid's Elements (Maths)",
+    description: "Mathematical adventure with intricate conundrums testing expertise.",
+    details: [
+      "Participants grapple with intricate mathematical conundrums.",
+      "Tailor-made for those with background in math competitions or interest in the subject.",
+      "Requires firm grasp of mathematical concepts.",
+      "Opportunity to create challenging mathematical problems.",
+      "Showcases problem-solving prowess through creative mathematics."
+    ],
+    gallery: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
   },
   {
     id: 10,
-    name: "Space Technology",
-    description: "Explore aerospace engineering challenges.",
-    details: "Work on satellite design, orbital mechanics, spacecraft systems, and space exploration technologies. Includes simulation and hands-on hardware challenges.",
-  },
-  {
-    id: 11,
-    name: "Quantum Computing",
-    description: "Dive into the quantum realm.",
-    details: "Introduction to quantum algorithms, quantum gates, and quantum programming. Use platforms like Qiskit to solve optimization problems and explore quantum advantage.",
-  },
-  {
-    id: 12,
-    name: "3D Printing & Design",
-    description: "Create physical prototypes with additive manufacturing.",
-    details: "Learn CAD modeling, 3D printing techniques, material selection, and design for manufacturing. Create functional prototypes for engineering challenges.",
+    category: "Subject-Related Modules",
+    name: "Terranova",
+    description: "Newest addition focusing on environmental systems and sustainable development.",
+    details: [
+      "Focuses on environmental systems, climate change, and sustainable development practices.",
+      "Module head should have strong awareness of current environmental issues and sustainable technologies.",
+      "Involves themes like biodiversity conservation, renewable energy, pollution control, and waste management.",
+      "Newest addition to the modules lineup.",
+      "Emphasis on real-world environmental challenges and solutions."
+    ],
+    gallery: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
   },
 ];
 
@@ -86,74 +152,127 @@ export default function Modules() {
     setExpandedModule(expandedModule === id ? null : id);
   };
 
+  const generalModules = modules.filter(m => m.category === "General Modules");
+  const subjectModules = modules.filter(m => m.category === "Subject-Related Modules");
+
   return (
     <div className="min-h-screen py-20">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 text-glow">
-            Challenge Modules
+            Module Teams
           </h1>
           <p className="text-xl text-foreground/80 max-w-3xl mx-auto leading-relaxed">
-            Explore our diverse range of STEM challenges. Each module is designed to test your skills, creativity, and problem-solving abilities.
+            Explore our diverse range of challenge modules spanning general brain games to specialized STEM disciplines.
           </p>
         </div>
 
-        {/* Modules Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-          {modules.map((module) => (
-            <div
-              key={module.id}
-              className="p-6 rounded-xl bg-card/50 backdrop-blur-sm border border-primary/20 hover:border-primary/40 transition-all card-glow"
-            >
-              <div className="flex justify-between items-start mb-3">
-                <h3 className="text-xl font-bold text-foreground">{module.name}</h3>
-                <button
-                  onClick={() => toggleModule(module.id)}
-                  className="text-primary hover:text-accent transition-colors"
-                >
-                  {expandedModule === module.id ? (
-                    <ChevronUp size={24} />
-                  ) : (
-                    <ChevronDown size={24} />
-                  )}
-                </button>
-              </div>
-              
-              <p className="text-sm text-foreground/70 mb-3">{module.description}</p>
-              
-              {expandedModule === module.id && (
-                <div className="mt-4 pt-4 border-t border-border">
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                    {module.details}
-                  </p>
+        {/* General Modules Section */}
+        <div className="mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-glow-purple">
+            General Modules
+          </h2>
+          <div className="grid grid-cols-1 gap-8">
+            {generalModules.map((module) => (
+              <div
+                key={module.id}
+                className="p-8 rounded-2xl frosted-glass card-glow hover:border-primary/40 transition-all"
+              >
+                <div className="flex justify-between items-start mb-4">
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-bold text-foreground mb-2 text-glow">
+                      {module.name}
+                    </h3>
+                    <p className="text-foreground/80 leading-relaxed">
+                      {module.description}
+                    </p>
+                  </div>
                   <Button
-                    size="sm"
-                    onClick={() => navigate("/register")}
-                    className="bg-gradient-to-r from-primary to-accent hover:opacity-90"
+                    variant="ghost"
+                    size="icon"
+                    onClick={() => toggleModule(module.id)}
+                    className="ml-4 hover:bg-primary/20"
                   >
-                    Register for This Module
+                    {expandedModule === module.id ? (
+                      <ChevronUp className="h-6 w-6" />
+                    ) : (
+                      <ChevronDown className="h-6 w-6" />
+                    )}
                   </Button>
                 </div>
-              )}
-            </div>
-          ))}
+
+                {expandedModule === module.id && (
+                  <div className="mt-6 space-y-6 animate-in fade-in slide-in-from-top-2">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                      {module.gallery.map((img, idx) => (
+                        <div key={idx} className="aspect-video rounded-lg overflow-hidden border border-primary/20 hover:border-primary/40 transition-all">
+                          <img src={img} alt={`${module.name} ${idx + 1}`} className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
+                        </div>
+                      ))}
+                    </div>
+                    <div className="space-y-3 pt-4 border-t border-primary/20">
+                      {module.details.map((detail, idx) => (
+                        <div key={idx} className="flex gap-3">
+                          <span className="text-primary mt-1">•</span>
+                          <p className="text-foreground/80 leading-relaxed">{detail}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* CTA */}
-        <div className="text-center mt-16">
-          <h2 className="text-3xl font-bold mb-4 text-glow-purple">
-            Ready to Take on the Challenge?
+        {/* Subject-Related Modules Section */}
+        <div className="mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-glow-purple">
+            Subject-Related Modules
           </h2>
-          <p className="text-foreground/80 mb-6">
-            Register your team now and choose your modules during the event.
-          </p>
-          <Button
-            size="lg"
-            onClick={() => navigate("/register")}
-            className="bg-gradient-to-r from-primary to-accent hover:opacity-90 text-lg px-8 py-6"
-          >
-            Register Your Team
+          <div className="grid grid-cols-1 gap-8">
+            {subjectModules.map((module) => (
+              <div key={module.id} className="p-8 rounded-2xl frosted-glass card-glow hover:border-accent/40 transition-all">
+                <div className="flex justify-between items-start mb-4">
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-bold text-foreground mb-2 text-glow">{module.name}</h3>
+                    <p className="text-foreground/80 leading-relaxed">{module.description}</p>
+                  </div>
+                  <Button variant="ghost" size="icon" onClick={() => toggleModule(module.id)} className="ml-4 hover:bg-accent/20">
+                    {expandedModule === module.id ? <ChevronUp className="h-6 w-6" /> : <ChevronDown className="h-6 w-6" />}
+                  </Button>
+                </div>
+                {expandedModule === module.id && (
+                  <div className="mt-6 space-y-6 animate-in fade-in slide-in-from-top-2">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                      {module.gallery.map((img, idx) => (
+                        <div key={idx} className="aspect-video rounded-lg overflow-hidden border border-accent/20 hover:border-accent/40 transition-all">
+                          <img src={img} alt={`${module.name} ${idx + 1}`} className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
+                        </div>
+                      ))}
+                    </div>
+                    <div className="space-y-3 pt-4 border-t border-accent/20">
+                      {module.details.map((detail, idx) => (
+                        <div key={idx} className="flex gap-3">
+                          <span className="text-accent mt-1">•</span>
+                          <p className="text-foreground/80 leading-relaxed">{detail}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* CTA Section */}
+        <div className="text-center p-12 rounded-2xl frosted-glass card-glow">
+          <h2 className="text-3xl font-bold mb-4 text-glow">Ready to Take on the Challenge?</h2>
+          <p className="text-foreground/80 mb-8 max-w-2xl mx-auto">Register your team now and compete in these exciting modules. Show your skills and win prestigious awards!</p>
+          <Button onClick={() => navigate("/register")} size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg font-semibold">
+            Register Now
           </Button>
         </div>
       </div>
