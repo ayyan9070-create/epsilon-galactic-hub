@@ -50,8 +50,8 @@ export default {
         nebula: {
           blue: "hsl(var(--nebula-blue))",
           purple: "hsl(var(--nebula-purple))",
-          pink: "hsl(var(--nebula-pink))",
           violet: "hsl(var(--nebula-violet))",
+          indigo: "hsl(var(--nebula-indigo))",
         },
         space: {
           deep: "hsl(var(--deep-space))",
