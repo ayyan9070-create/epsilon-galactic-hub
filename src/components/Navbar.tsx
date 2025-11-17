@@ -4,6 +4,7 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
 import { AuthModal } from "./AuthModal";
+import stemLogo from "@/assets/stem-logo.png";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -48,9 +49,12 @@ export const Navbar = () => {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-card/80 backdrop-blur-lg border-b border-border">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <Link to="/" className="text-2xl font-bold text-primary text-glow">
-              EPSILON VI
-            </Link>
+            <div className="flex items-center gap-4">
+              <img src={stemLogo} alt="STEM Society" className="w-10 h-10" />
+              <Link to="/" className="text-2xl font-bold text-primary text-glow">
+                EPSILON VI
+              </Link>
+            </div>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-6">

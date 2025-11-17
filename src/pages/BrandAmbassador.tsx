@@ -79,11 +79,6 @@ export default function BrandAmbassador() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
           {[
             {
-              icon: Sparkles,
-              title: "Exclusive Swag",
-              desc: "Official Epsilon merchandise and ambassador kit",
-            },
-            {
               icon: Users,
               title: "Networking",
               desc: "Connect with ambassadors from other institutions",
@@ -98,6 +93,11 @@ export default function BrandAmbassador() {
               title: "Recognition",
               desc: "Certificate and LinkedIn endorsement",
             },
+            {
+              icon: Sparkles,
+              title: "Exclusive Perks",
+              desc: "Special rewards based on team referrals",
+            },
           ].map((benefit, index) => (
             <div
               key={index}
@@ -110,6 +110,61 @@ export default function BrandAmbassador() {
               <p className="text-sm text-muted-foreground">{benefit.desc}</p>
             </div>
           ))}
+        </div>
+
+        {/* Ambassador Perks */}
+        <div className="mb-12 p-8 rounded-2xl bg-gradient-to-br from-primary/10 to-accent/10 border border-primary/30 card-glow">
+          <h2 className="text-3xl font-bold mb-8 text-center text-glow-purple">
+            Ambassador Perks & Rewards
+          </h2>
+          
+          <div className="space-y-6">
+            <div className="p-6 rounded-xl bg-card/60 backdrop-blur-sm border border-primary/20">
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-xl">
+                  10+
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold mb-2 text-primary">Bring 10+ Teams</h3>
+                  <p className="text-foreground/80">
+                    Earn a <span className="text-primary font-semibold">Token of Appreciation</span> + <span className="text-accent font-semibold">Exclusive Gift Prize</span> as a reward for exceptional outreach.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="p-6 rounded-xl bg-card/60 backdrop-blur-sm border border-primary/20">
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center text-accent font-bold text-xl">
+                  5+
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold mb-2 text-accent">Bring 5+ Teams</h3>
+                  <p className="text-foreground/80">
+                    Receive an official <span className="text-accent font-semibold">Token of Appreciation</span> recognizing your contribution.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="p-6 rounded-xl bg-card/60 backdrop-blur-sm border border-primary/20">
+              <div className="flex items-start gap-4">
+                <Trophy className="flex-shrink-0 w-12 h-12 text-primary" />
+                <div>
+                  <h3 className="text-xl font-semibold mb-2 text-primary">Top 2 Brand Ambassadors</h3>
+                  <p className="text-foreground/80">
+                    Awarded <span className="text-primary font-semibold">Position Shields</span> and recognized on-stage during the closing ceremony.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-6 p-4 rounded-lg bg-muted/30 border border-border">
+              <p className="text-sm text-foreground/70 text-center">
+                <strong className="text-primary">Note:</strong> Brand Ambassadors are expected to bring in at least <strong>3 teams</strong> for certification.
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* Application Form */}

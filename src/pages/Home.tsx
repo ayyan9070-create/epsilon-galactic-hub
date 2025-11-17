@@ -1,27 +1,31 @@
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import { Calendar, Users, Award } from "lucide-react";
-import heroNebula from "@/assets/hero-nebula.jpg";
+import { Calendar, Users, Award, ExternalLink } from "lucide-react";
+import heroSpace from "@/assets/hero-space.jpg";
+import { Particles } from "@/components/Particles";
 
 export default function Home() {
   const navigate = useNavigate();
 
   return (
     <div className="min-h-screen">
+      {/* Particles Background */}
+      <Particles />
+      
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Background Image */}
         <div 
           className="absolute inset-0 z-0"
           style={{
-            backgroundImage: `url(${heroNebula})`,
+            backgroundImage: `url(${heroSpace})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
         />
         
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 z-0 bg-gradient-to-b from-background/40 via-background/20 to-background/80" />
+        <div className="absolute inset-0 z-0 bg-gradient-to-b from-background/50 via-background/30 to-background/90" />
 
         {/* Content */}
         <div className="relative z-10 container mx-auto px-4 pt-20">
@@ -95,15 +99,34 @@ export default function Home() {
             Ready to Join the Galaxy?
           </h2>
           <p className="text-xl text-foreground/80 mb-8 max-w-2xl mx-auto">
-            Register your team now and embark on an extraordinary journey of STEM excellence.
+            Register your team and embark on an unforgettable journey through science and innovation
           </p>
-          <Button
-            size="lg"
+          <Button 
+            size="lg" 
+            className="text-lg px-8 py-6 bg-gradient-to-r from-primary to-accent hover:opacity-90 text-glow"
             onClick={() => navigate("/register")}
-            className="text-lg px-8 py-6 bg-gradient-to-r from-primary to-accent hover:opacity-90"
           >
             Start Your Journey
           </Button>
+        </div>
+      </section>
+
+      {/* STEM Society Link */}
+      <section className="py-16 bg-card/20 backdrop-blur-sm border-t border-primary/20">
+        <div className="container mx-auto px-4 text-center">
+          <h3 className="text-2xl font-bold mb-4 text-glow-purple">Presented by STEM Society</h3>
+          <p className="text-foreground/70 mb-6 max-w-xl mx-auto">
+            Explore more events and initiatives by the STEM Society of Alpha College
+          </p>
+          <a 
+            href="https://stem.orionedgedigital.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-primary/10 hover:bg-primary/20 border border-primary/30 rounded-lg transition-all text-primary hover:text-glow"
+          >
+            Visit STEM Society Website
+            <ExternalLink className="w-4 h-4" />
+          </a>
         </div>
       </section>
     </div>
