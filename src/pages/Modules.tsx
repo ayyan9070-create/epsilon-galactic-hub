@@ -245,9 +245,21 @@ export default function Modules() {
                 </div>
                 {expandedModule === module.id && (
                   <div className="mt-6 space-y-6 animate-in fade-in slide-in-from-top-2">
+                    {/* Module Logo Space */}
+                    <div className="flex justify-center pb-6 border-b border-primary/20">
+                      <div className="w-32 h-32 rounded-xl frosted-glass border-2 border-primary/30 flex items-center justify-center card-glow">
+                        <div className="text-center">
+                          <div className="w-16 h-16 mx-auto mb-2 rounded-full bg-primary/20 flex items-center justify-center">
+                            <span className="text-2xl">🚀</span>
+                          </div>
+                          <span className="text-xs text-foreground/50">Module Logo</span>
+                        </div>
+                      </div>
+                    </div>
+
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                       {module.gallery.map((img, idx) => (
-                        <div key={idx} className="aspect-video rounded-lg overflow-hidden border border-accent/20 hover:border-accent/40 transition-all">
+                        <div key={idx} className="aspect-video rounded-lg overflow-hidden frosted-glass border border-accent/20 hover:border-accent/40 transition-all">
                           <img src={img} alt={`${module.name} ${idx + 1}`} className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
                         </div>
                       ))}

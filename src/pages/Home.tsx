@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { Calendar, Users, Award, ExternalLink } from "lucide-react";
-import heroSpace from "@/assets/hero-space.jpg";
+import heroNebula from "@/assets/hero-nebula.jpg";
 import { Particles } from "@/components/Particles";
 
 export default function Home() {
@@ -18,7 +18,7 @@ export default function Home() {
         <div 
           className="absolute inset-0 z-0"
           style={{
-            backgroundImage: `url(${heroSpace})`,
+            backgroundImage: `url(${heroNebula})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
@@ -67,30 +67,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Quick Stats */}
-      <section className="py-20 bg-card/30 backdrop-blur-sm">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center p-8 rounded-xl bg-gradient-to-br from-card to-card/50 card-glow border border-primary/20">
-              <Users className="w-16 h-16 mx-auto mb-4 text-primary" />
-              <h3 className="text-5xl font-bold text-primary mb-2 text-glow">80+</h3>
-              <p className="text-lg text-foreground/80">Teams Competing</p>
-            </div>
-            
-            <div className="text-center p-8 rounded-xl bg-gradient-to-br from-card to-card/50 card-glow border border-primary/20">
-              <Calendar className="w-16 h-16 mx-auto mb-4 text-accent" />
-              <h3 className="text-5xl font-bold text-accent mb-2 text-glow-purple">3</h3>
-              <p className="text-lg text-foreground/80">Days of Innovation</p>
-            </div>
-            
-            <div className="text-center p-8 rounded-xl bg-gradient-to-br from-card to-card/50 card-glow border border-primary/20">
-              <Award className="w-16 h-16 mx-auto mb-4 text-primary" />
-              <h3 className="text-5xl font-bold text-primary mb-2 text-glow">11+</h3>
-              <p className="text-lg text-foreground/80">Challenge Modules</p>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* CTA Section */}
       <section className="py-20">
