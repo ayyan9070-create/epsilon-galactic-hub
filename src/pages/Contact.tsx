@@ -55,24 +55,24 @@ export default function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Info */}
           <div className="space-y-8">
-            <div className="p-6 rounded-xl bg-card/50 backdrop-blur-sm border border-primary/20">
+            <div className="p-6 rounded-xl frosted-glass border border-primary/20 card-glow">
               <Mail className="w-10 h-10 text-primary mb-4" />
               <h3 className="text-xl font-semibold mb-2 text-foreground">Email</h3>
-              <p className="text-muted-foreground">info@epsilon.org.pk</p>
-              <p className="text-muted-foreground">support@epsilon.org.pk</p>
+              <p className="text-foreground/70">info@epsilon.org.pk</p>
+              <p className="text-foreground/70">support@epsilon.org.pk</p>
             </div>
 
-            <div className="p-6 rounded-xl bg-card/50 backdrop-blur-sm border border-accent/20">
+            <div className="p-6 rounded-xl frosted-glass border border-accent/20 card-glow">
               <Phone className="w-10 h-10 text-accent mb-4" />
               <h3 className="text-xl font-semibold mb-2 text-foreground">Phone</h3>
-              <p className="text-muted-foreground">+92 300 1234567</p>
-              <p className="text-muted-foreground">+92 321 9876543</p>
+              <p className="text-foreground/70">+92 300 1234567</p>
+              <p className="text-foreground/70">+92 321 9876543</p>
             </div>
 
-            <div className="p-6 rounded-xl bg-card/50 backdrop-blur-sm border border-primary/20">
+            <div className="p-6 rounded-xl frosted-glass border border-primary/20 card-glow">
               <MapPin className="w-10 h-10 text-primary mb-4" />
               <h3 className="text-xl font-semibold mb-2 text-foreground">Location</h3>
-              <p className="text-muted-foreground">
+              <p className="text-foreground/70">
                 Pakistan Science Foundation<br />
                 Islamabad, Pakistan
               </p>
@@ -80,7 +80,7 @@ export default function Contact() {
           </div>
 
           {/* Contact Form */}
-          <div className="p-8 rounded-2xl bg-card/50 backdrop-blur-sm border border-primary/20 card-glow">
+          <div className="p-8 rounded-2xl frosted-glass border border-primary/20 card-glow">
             <h2 className="text-2xl font-bold mb-6 text-glow-purple">
               Send Us a Message
             </h2>

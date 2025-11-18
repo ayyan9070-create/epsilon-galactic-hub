@@ -23,7 +23,7 @@ export const Particles = () => {
     }> = [];
 
     // Create particles
-    for (let i = 0; i < 150; i++) {
+    for (let i = 0; i < 80; i++) {
       particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
@@ -79,7 +79,7 @@ export const Particles = () => {
     <canvas
       ref={canvasRef}
       className="fixed inset-0 pointer-events-none z-0"
-      style={{ opacity: 0.6 }}
+      style={{ opacity: 0.4 }}
     />
   );
 };

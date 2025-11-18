@@ -42,40 +42,121 @@ export default function About() {
         </div>
 
         <div className="mb-20">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-glow-purple">What to Expect</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center p-8 rounded-xl frosted-glass card-glow">
-              <Users className="w-16 h-16 mx-auto mb-4 text-primary" />
-              <h3 className="text-4xl font-bold text-primary mb-2">800+</h3>
-              <p className="text-lg text-foreground/80">Expected Participants</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-glow-purple">What to Expect</h2>
+          <div className="relative max-w-6xl mx-auto">
+            {/* Connection Lines */}
+            <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 0 }}>
+              <line x1="50%" y1="15%" x2="25%" y2="40%" stroke="hsl(var(--primary))" strokeWidth="2" opacity="0.3" />
+              <line x1="50%" y1="15%" x2="75%" y2="40%" stroke="hsl(var(--primary))" strokeWidth="2" opacity="0.3" />
+              <line x1="50%" y1="15%" x2="50%" y2="65%" stroke="hsl(var(--primary))" strokeWidth="2" opacity="0.3" />
+            </svg>
+            
+            {/* Top Center Circle */}
+            <div className="flex justify-center mb-32 relative">
+              <div className="relative">
+                <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary to-accent opacity-30 blur-2xl animate-pulse" />
+                <div className="relative w-32 h-32 rounded-full bg-gradient-to-br from-primary/40 to-accent/40 backdrop-blur-md border-4 border-primary/60 flex items-center justify-center card-glow">
+                  <Target className="w-16 h-16 text-primary" />
+                </div>
+              </div>
             </div>
-            <div className="text-center p-8 rounded-xl frosted-glass card-glow">
-              <Calendar className="w-16 h-16 mx-auto mb-4 text-accent" />
-              <h3 className="text-4xl font-bold text-accent mb-2">3 Days</h3>
-              <p className="text-lg text-foreground/80">Of Competition</p>
-            </div>
-            <div className="text-center p-8 rounded-xl frosted-glass card-glow">
-              <Award className="w-16 h-16 mx-auto mb-4 text-primary" />
-              <h3 className="text-4xl font-bold text-primary mb-2">12+</h3>
-              <p className="text-lg text-foreground/80">Diverse Modules</p>
+
+            {/* Three Cards Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+              {/* 80+ Teams Card */}
+              <div className="relative">
+                <div className="absolute -top-12 left-1/2 -translate-x-1/2">
+                  <div className="relative">
+                    <div className="absolute inset-0 rounded-full bg-primary/30 blur-xl" />
+                    <div className="relative w-20 h-20 rounded-full bg-gradient-to-br from-primary/40 to-primary/60 backdrop-blur-md border-4 border-primary/60 flex items-center justify-center">
+                      <Users className="w-10 h-10 text-primary" />
+                    </div>
+                  </div>
+                </div>
+                <div className="pt-12 p-8 rounded-xl frosted-glass card-glow border border-primary/20 relative overflow-hidden">
+                  <div className="absolute top-4 left-4 text-4xl text-primary/10">+</div>
+                  <div className="absolute bottom-4 right-4 text-4xl text-primary/10">+</div>
+                  <h3 className="text-4xl font-bold text-center text-primary mb-4">80+ TEAMS</h3>
+                  <p className="text-center text-foreground/80 text-sm leading-relaxed">
+                    Hosting over 80 teams, Epsilon unfolds as a three-day odyssey of intellect, innovation, and discovery.
+                  </p>
+                </div>
+              </div>
+
+              {/* 3 Days Card */}
+              <div className="relative">
+                <div className="absolute -top-12 left-1/2 -translate-x-1/2">
+                  <div className="relative">
+                    <div className="absolute inset-0 rounded-full bg-accent/30 blur-xl" />
+                    <div className="relative w-20 h-20 rounded-full bg-gradient-to-br from-accent/40 to-accent/60 backdrop-blur-md border-4 border-accent/60 flex items-center justify-center">
+                      <Zap className="w-10 h-10 text-accent" />
+                    </div>
+                  </div>
+                </div>
+                <div className="pt-12 p-8 rounded-xl frosted-glass card-glow border border-accent/20 relative overflow-hidden">
+                  <div className="absolute top-4 left-4 text-4xl text-accent/10">+</div>
+                  <div className="absolute bottom-4 right-4 text-4xl text-accent/10">+</div>
+                  <h3 className="text-4xl font-bold text-center text-accent mb-4">3 DAYS</h3>
+                  <p className="text-center text-foreground/80 text-sm leading-relaxed">
+                    A three-day odyssey of intellect, innovation, and discovery awaits at Epsilon.
+                  </p>
+                </div>
+              </div>
+
+              {/* 11+ Modules Card */}
+              <div className="relative">
+                <div className="absolute -top-12 left-1/2 -translate-x-1/2">
+                  <div className="relative">
+                    <div className="absolute inset-0 rounded-full bg-primary/30 blur-xl" />
+                    <div className="relative w-20 h-20 rounded-full bg-gradient-to-br from-primary/40 to-primary/60 backdrop-blur-md border-4 border-primary/60 flex items-center justify-center">
+                      <Award className="w-10 h-10 text-primary" />
+                    </div>
+                  </div>
+                </div>
+                <div className="pt-12 p-8 rounded-xl frosted-glass card-glow border border-primary/20 relative overflow-hidden">
+                  <div className="absolute top-4 left-4 text-4xl text-primary/10">+</div>
+                  <div className="absolute bottom-4 right-4 text-4xl text-primary/10">+</div>
+                  <h3 className="text-4xl font-bold text-center text-primary mb-4">11+ MODULES</h3>
+                  <p className="text-center text-foreground/80 text-sm leading-relaxed">
+                    Epsilon's modules blend mystery, intellect, and innovation into a unified experience of exploration. Each challenge pushes creative and analytical limits across science, technology, and logic. Together, they form the ultimate test of curiosity and human potential.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
         <div className="mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-glow-purple">Executive Body</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className="space-y-6 max-w-4xl mx-auto">
             {executiveBody.map((member, index) => (
               <div key={index} className="relative group">
-                <div className="p-8 rounded-2xl frosted-glass card-glow hover:border-primary/60 transition-all duration-300">
-                  <div className="relative w-32 h-32 mx-auto mb-6">
-                    <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary to-accent opacity-20 blur-xl group-hover:opacity-40 transition-opacity" />
-                    <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-primary/40 group-hover:border-primary/60 transition-all">
-                      <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
+                <div className="p-6 md:p-8 rounded-2xl frosted-glass card-glow hover:border-primary/60 transition-all duration-300 border border-primary/20">
+                  <div className="flex flex-col md:flex-row items-center gap-6">
+                    {/* Image Section */}
+                    <div className="relative flex-shrink-0">
+                      <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-primary to-accent opacity-20 blur-2xl group-hover:opacity-40 transition-opacity" />
+                      <div className="relative w-40 h-40 md:w-48 md:h-48 rounded-3xl overflow-hidden border-4 border-primary/40 group-hover:border-primary/60 transition-all">
+                        <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
+                      </div>
+                    </div>
+                    
+                    {/* Details Section */}
+                    <div className="flex-1 text-center md:text-left">
+                      <h3 className="text-3xl md:text-4xl font-black text-foreground mb-2 tracking-wide" style={{ fontStyle: 'italic' }}>
+                        {member.name}
+                      </h3>
+                      <p className="text-primary font-bold text-lg mb-4">{member.role}</p>
+                      <div className="space-y-2 text-foreground/70">
+                        <p className="flex items-center justify-center md:justify-start gap-2">
+                          <span className="font-semibold">Phone:</span> <span>0321 3409951</span>
+                        </p>
+                        <p className="flex items-center justify-center md:justify-start gap-2">
+                          <span className="font-semibold">Email:</span> <span>member@example.com</span>
+                        </p>
+                      </div>
                     </div>
                   </div>
-                  <h3 className="text-xl font-bold text-center text-foreground mb-2">{member.name}</h3>
-                  <p className="text-center text-primary font-semibold text-sm">{member.role}</p>
                 </div>
               </div>
             ))}
