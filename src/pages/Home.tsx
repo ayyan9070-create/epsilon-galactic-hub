@@ -13,7 +13,7 @@ export default function Home() {
       <Particles />
       
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative h-screen w-full flex items-center overflow-hidden">
         {/* Background Image */}
         <div 
           className="absolute inset-0 z-0"
@@ -25,43 +25,45 @@ export default function Home() {
         />
         
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 z-0 bg-gradient-to-b from-background/50 via-background/30 to-background/90" />
+        <div className="absolute inset-0 z-0 bg-gradient-to-b from-background/40 via-background/20 to-background/70" />
 
         {/* Content */}
-        <div className="relative z-10 container mx-auto px-4 pt-20">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-12">
-            {/* Left side - Title */}
-            <div className="flex-1 space-y-6">
-              <h1 
-                className="text-7xl md:text-9xl font-black text-foreground/90 tracking-wider"
-                style={{
-                  textShadow: '0 0 30px rgba(167, 139, 250, 0.5), 0 0 60px rgba(167, 139, 250, 0.3)',
-                  fontWeight: 900,
-                  letterSpacing: '0.05em'
-                }}
-              >
-                EPSILON VI
-              </h1>
-              <p className="text-2xl md:text-3xl text-foreground font-light tracking-wide">
-                BEYOND THE HORIZON
-              </p>
-            </div>
-            
-            {/* Right side - Dates and CTA */}
-            <div className="flex-shrink-0 text-right space-y-4">
-              <div className="text-6xl md:text-8xl font-bold text-foreground tracking-wider">
-                16 | 17 | 18
+        <div className="relative z-10 w-full h-full flex items-center">
+          <div className="container mx-auto px-8 md:px-16">
+            <div className="flex flex-col md:flex-row items-center md:items-start justify-between w-full gap-12">
+              {/* Left side - Title */}
+              <div className="space-y-6 md:max-w-2xl">
+                <h1 
+                  className="text-6xl md:text-8xl lg:text-9xl font-black text-foreground/90 tracking-wider leading-none"
+                  style={{
+                    textShadow: '0 0 30px rgba(167, 139, 250, 0.5), 0 0 60px rgba(167, 139, 250, 0.3)',
+                    fontWeight: 900,
+                    letterSpacing: '0.05em'
+                  }}
+                >
+                  EPSILON VI
+                </h1>
+                <p className="text-xl md:text-2xl lg:text-3xl text-foreground font-light tracking-wide">
+                  BEYOND THE HORIZON
+                </p>
               </div>
-              <div className="text-xl md:text-2xl text-foreground/90 tracking-widest">
-                JANUARY 2026
+              
+              {/* Right side - Dates and CTA */}
+              <div className="flex-shrink-0 text-center md:text-right space-y-4 md:pt-0">
+                <div className="text-5xl md:text-7xl lg:text-8xl font-bold text-foreground tracking-wider">
+                  16 | 17 | 18
+                </div>
+                <div className="text-lg md:text-xl lg:text-2xl text-foreground/90 tracking-widest">
+                  JANUARY 2026
+                </div>
+                <Button 
+                  size="lg" 
+                  className="mt-6 bg-background/40 hover:bg-background/60 border border-primary/30 text-foreground px-8 py-6 text-lg backdrop-blur-sm transition-all"
+                  onClick={() => navigate("/register")}
+                >
+                  Register Now
+                </Button>
               </div>
-              <Button 
-                size="lg" 
-                className="mt-6 bg-background/40 hover:bg-background/60 border border-primary/30 text-foreground px-8 py-6 text-lg backdrop-blur-sm transition-all"
-                onClick={() => navigate("/register")}
-              >
-                Register Now
-              </Button>
             </div>
           </div>
         </div>
