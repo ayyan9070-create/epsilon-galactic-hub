@@ -24,45 +24,72 @@ export default function Home() {
           }}
         />
         
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 z-0 bg-gradient-to-b from-background/40 via-background/20 to-background/70" />
+        {/* Minimal Gradient Overlay */}
+        <div className="absolute inset-0 z-0 bg-gradient-to-b from-transparent via-transparent to-background/40" />
 
         {/* Content */}
         <div className="relative z-10 w-full h-full flex items-center">
-          <div className="container mx-auto px-8 md:px-16">
-            <div className="flex flex-col md:flex-row items-center md:items-start justify-between w-full gap-12">
+          <div className="container mx-auto px-6 md:px-12 lg:px-16">
+            <div className="flex flex-col md:flex-row items-start justify-between w-full">
               {/* Left side - Title */}
-              <div className="space-y-6 md:max-w-2xl">
+              <div className="space-y-4 md:space-y-6 flex-1">
                 <h1 
-                  className="text-6xl md:text-8xl lg:text-9xl font-black text-foreground/90 tracking-wider leading-none"
+                  className="text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black tracking-wider leading-none"
                   style={{
-                    textShadow: '0 0 30px rgba(167, 139, 250, 0.5), 0 0 60px rgba(167, 139, 250, 0.3)',
+                    color: 'rgba(220, 220, 240, 0.95)',
+                    textShadow: '0 0 40px rgba(167, 139, 250, 0.6), 0 0 80px rgba(167, 139, 250, 0.4)',
                     fontWeight: 900,
-                    letterSpacing: '0.05em'
+                    letterSpacing: '0.1em'
                   }}
                 >
                   EPSILON VI
                 </h1>
-                <p className="text-xl md:text-2xl lg:text-3xl text-foreground font-light tracking-wide">
+                <p 
+                  className="text-lg md:text-xl lg:text-2xl xl:text-3xl tracking-widest"
+                  style={{
+                    color: 'rgba(220, 220, 240, 0.9)',
+                    fontWeight: 300,
+                    letterSpacing: '0.15em'
+                  }}
+                >
                   BEYOND THE HORIZON
                 </p>
               </div>
               
               {/* Right side - Dates and CTA */}
-              <div className="flex-shrink-0 text-center md:text-right space-y-4 md:pt-0">
-                <div className="text-5xl md:text-7xl lg:text-8xl font-bold text-foreground tracking-wider">
+              <div className="flex-shrink-0 text-right space-y-3 mt-8 md:mt-0">
+                <div 
+                  className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-wider"
+                  style={{
+                    color: 'rgba(220, 220, 240, 0.95)',
+                    fontWeight: 700,
+                    letterSpacing: '0.1em'
+                  }}
+                >
                   16 | 17 | 18
                 </div>
-                <div className="text-lg md:text-xl lg:text-2xl text-foreground/90 tracking-widest">
+                <div 
+                  className="text-base md:text-lg lg:text-xl xl:text-2xl tracking-widest"
+                  style={{
+                    color: 'rgba(220, 220, 240, 0.85)',
+                    letterSpacing: '0.2em'
+                  }}
+                >
                   JANUARY 2026
                 </div>
-                <Button 
-                  size="lg" 
-                  className="mt-6 bg-background/40 hover:bg-background/60 border border-primary/30 text-foreground px-8 py-6 text-lg backdrop-blur-sm transition-all"
-                  onClick={() => navigate("/register")}
-                >
-                  Register Now
-                </Button>
+                <div className="pt-4">
+                  <Button 
+                    size="lg" 
+                    className="bg-background/30 hover:bg-background/50 border border-foreground/20 text-foreground px-10 py-6 text-base md:text-lg backdrop-blur-md transition-all rounded-md"
+                    onClick={() => navigate("/register")}
+                    style={{
+                      fontWeight: 500,
+                      letterSpacing: '0.05em'
+                    }}
+                  >
+                    Register Now
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
