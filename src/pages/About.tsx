@@ -18,15 +18,76 @@ export default function About() {
   return (
     <div className="min-h-screen py-20">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-glow">About Epsilon VI</h1>
-          <p className="text-xl text-foreground/80 max-w-4xl mx-auto leading-relaxed mb-8">
-            Epsilon is the flagship three-day science olympiad organized by the STEM Society of Alpha College, designed to test creativity, technical skill, and problem-solving under pressure.
-          </p>
-          <div className="max-w-4xl mx-auto text-left space-y-4 text-foreground/80 leading-relaxed">
-            <p>Epsilon VI will be a remarkable science showcase, featuring more than 12 diverse modules with additional modules filled by the creativity of our members that will span an impressive range of disciplines, from coding to criminology. Hopefully, drawing over 800 dedicated participants, the event will foster a vibrant community united by a shared passion for discovery and a pursuit of knowledge.</p>
-            <p>Participants form teams of 4–7 members, competing collaboratively in intellectually challenging and fun modules. Features 12+ thrilling modules: 4 General and 8 STEM-based, Epsilon VI will be having new modules.</p>
-            <p>Each day functions as a qualifying round, where top-performing teams advance to subsequent stages, narrowing the competition toward the final day. Epsilon VI will leave an indelible mark on everyone involved, creating unforgettable experiences and deepening their appreciation for the wonders of science, as well as getting their hands on real-world experiences fueled by teamwork and endurance.</p>
+        {/* Hero Section */}
+        <div className="text-center mb-20">
+          <h1 className="text-5xl md:text-7xl font-bold mb-8 text-glow tracking-wider">ABOUT EPSILON VI</h1>
+          <div className="max-w-5xl mx-auto space-y-6 text-lg md:text-xl text-foreground/90 leading-relaxed">
+            <p>
+              Epsilon is the flagship three-day science olympiad organized by the STEM Society of Alpha College, designed to test creativity, technical skill, and problem-solving under pressure.
+            </p>
+            <p>
+              Epsilon VI will be a remarkable science showcase, featuring more than 12 diverse modules with additional modules filled by the creativity of our members that will span an impressive range of disciplines, from coding to criminology. Hopefully, drawing over 800 dedicated participants, the event will foster a vibrant community united by a shared passion for discovery and a pursuit of knowledge.
+            </p>
+            <p>
+              Participants form teams of 4–7 members, competing collaboratively in intellectually challenging and fun modules. Features 12+ thrilling modules: 4 General and 8 STEM-based, Epsilon VI will be having new modules.
+            </p>
+            <p>
+              Each day functions as a qualifying round, where top-performing teams advance to subsequent stages, narrowing the competition toward the final day. Epsilon VI will leave an indelible mark on everyone involved, creating unforgettable experiences and deepening their appreciation for the wonders of science, as well as getting their hands on real-world experiences fueled by teamwork and endurance.
+            </p>
+          </div>
+        </div>
+
+        {/* What to Expect Section */}
+        <div className="mb-20">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-glow tracking-wider">WHAT TO EXPECT</h2>
+          <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 max-w-6xl mx-auto">
+            {/* 80+ Teams */}
+            <div className="flex flex-col items-center space-y-4 group">
+              <div className="relative">
+                <div className="absolute inset-0 rounded-full bg-primary/30 blur-2xl group-hover:blur-3xl transition-all" />
+                <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full bg-gradient-to-br from-primary/40 to-primary/60 backdrop-blur-xl border-4 border-primary/50 flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-300">
+                  <Users className="w-16 h-16 md:w-20 md:h-20 text-primary" />
+                </div>
+              </div>
+              <div className="text-center">
+                <h3 className="text-4xl md:text-5xl font-black text-primary mb-2 tracking-wider">80+</h3>
+                <p className="text-lg md:text-xl font-bold text-foreground/90 tracking-wide">TEAMS</p>
+              </div>
+            </div>
+
+            {/* Connector Line */}
+            <div className="hidden md:block w-16 h-1 bg-gradient-to-r from-primary via-accent to-primary opacity-30" />
+
+            {/* 3 Days */}
+            <div className="flex flex-col items-center space-y-4 group">
+              <div className="relative">
+                <div className="absolute inset-0 rounded-full bg-accent/30 blur-2xl group-hover:blur-3xl transition-all" />
+                <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full bg-gradient-to-br from-accent/40 to-accent/60 backdrop-blur-xl border-4 border-accent/50 flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-300">
+                  <Calendar className="w-16 h-16 md:w-20 md:h-20 text-accent" />
+                </div>
+              </div>
+              <div className="text-center">
+                <h3 className="text-4xl md:text-5xl font-black text-accent mb-2 tracking-wider">3</h3>
+                <p className="text-lg md:text-xl font-bold text-foreground/90 tracking-wide">DAYS</p>
+              </div>
+            </div>
+
+            {/* Connector Line */}
+            <div className="hidden md:block w-16 h-1 bg-gradient-to-r from-accent via-primary to-accent opacity-30" />
+
+            {/* 11+ Modules */}
+            <div className="flex flex-col items-center space-y-4 group">
+              <div className="relative">
+                <div className="absolute inset-0 rounded-full bg-primary/30 blur-2xl group-hover:blur-3xl transition-all" />
+                <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full bg-gradient-to-br from-primary/40 to-primary/60 backdrop-blur-xl border-4 border-primary/50 flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-300">
+                  <Award className="w-16 h-16 md:w-20 md:h-20 text-primary" />
+                </div>
+              </div>
+              <div className="text-center">
+                <h3 className="text-4xl md:text-5xl font-black text-primary mb-2 tracking-wider">11+</h3>
+                <p className="text-lg md:text-xl font-bold text-foreground/90 tracking-wide">MODULES</p>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -38,91 +99,6 @@ export default function About() {
                 <img src={img} alt={`Gallery ${index + 1}`} className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
               </div>
             ))}
-          </div>
-        </div>
-
-        <div className="mb-20">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-glow-purple">What to Expect</h2>
-          <div className="relative max-w-6xl mx-auto">
-            {/* Connection Lines */}
-            <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 0 }}>
-              <line x1="50%" y1="15%" x2="25%" y2="40%" stroke="hsl(var(--primary))" strokeWidth="2" opacity="0.3" />
-              <line x1="50%" y1="15%" x2="75%" y2="40%" stroke="hsl(var(--primary))" strokeWidth="2" opacity="0.3" />
-              <line x1="50%" y1="15%" x2="50%" y2="65%" stroke="hsl(var(--primary))" strokeWidth="2" opacity="0.3" />
-            </svg>
-            
-            {/* Top Center Circle */}
-            <div className="flex justify-center mb-32 relative">
-              <div className="relative">
-                <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary to-accent opacity-30 blur-2xl animate-pulse" />
-                <div className="relative w-32 h-32 rounded-full bg-gradient-to-br from-primary/40 to-accent/40 backdrop-blur-md border-4 border-primary/60 flex items-center justify-center card-glow">
-                  <Target className="w-16 h-16 text-primary" />
-                </div>
-              </div>
-            </div>
-
-            {/* Three Cards Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-              {/* 80+ Teams Card */}
-              <div className="relative">
-                <div className="absolute -top-12 left-1/2 -translate-x-1/2">
-                  <div className="relative">
-                    <div className="absolute inset-0 rounded-full bg-primary/30 blur-xl" />
-                    <div className="relative w-20 h-20 rounded-full bg-gradient-to-br from-primary/40 to-primary/60 backdrop-blur-md border-4 border-primary/60 flex items-center justify-center">
-                      <Users className="w-10 h-10 text-primary" />
-                    </div>
-                  </div>
-                </div>
-                <div className="pt-12 p-8 rounded-xl frosted-glass card-glow border border-primary/20 relative overflow-hidden">
-                  <div className="absolute top-4 left-4 text-4xl text-primary/10">+</div>
-                  <div className="absolute bottom-4 right-4 text-4xl text-primary/10">+</div>
-                  <h3 className="text-4xl font-bold text-center text-primary mb-4">80+ TEAMS</h3>
-                  <p className="text-center text-foreground/80 text-sm leading-relaxed">
-                    Hosting over 80 teams, Epsilon unfolds as a three-day odyssey of intellect, innovation, and discovery.
-                  </p>
-                </div>
-              </div>
-
-              {/* 3 Days Card */}
-              <div className="relative">
-                <div className="absolute -top-12 left-1/2 -translate-x-1/2">
-                  <div className="relative">
-                    <div className="absolute inset-0 rounded-full bg-accent/30 blur-xl" />
-                    <div className="relative w-20 h-20 rounded-full bg-gradient-to-br from-accent/40 to-accent/60 backdrop-blur-md border-4 border-accent/60 flex items-center justify-center">
-                      <Zap className="w-10 h-10 text-accent" />
-                    </div>
-                  </div>
-                </div>
-                <div className="pt-12 p-8 rounded-xl frosted-glass card-glow border border-accent/20 relative overflow-hidden">
-                  <div className="absolute top-4 left-4 text-4xl text-accent/10">+</div>
-                  <div className="absolute bottom-4 right-4 text-4xl text-accent/10">+</div>
-                  <h3 className="text-4xl font-bold text-center text-accent mb-4">3 DAYS</h3>
-                  <p className="text-center text-foreground/80 text-sm leading-relaxed">
-                    A three-day odyssey of intellect, innovation, and discovery awaits at Epsilon.
-                  </p>
-                </div>
-              </div>
-
-              {/* 11+ Modules Card */}
-              <div className="relative">
-                <div className="absolute -top-12 left-1/2 -translate-x-1/2">
-                  <div className="relative">
-                    <div className="absolute inset-0 rounded-full bg-primary/30 blur-xl" />
-                    <div className="relative w-20 h-20 rounded-full bg-gradient-to-br from-primary/40 to-primary/60 backdrop-blur-md border-4 border-primary/60 flex items-center justify-center">
-                      <Award className="w-10 h-10 text-primary" />
-                    </div>
-                  </div>
-                </div>
-                <div className="pt-12 p-8 rounded-xl frosted-glass card-glow border border-primary/20 relative overflow-hidden">
-                  <div className="absolute top-4 left-4 text-4xl text-primary/10">+</div>
-                  <div className="absolute bottom-4 right-4 text-4xl text-primary/10">+</div>
-                  <h3 className="text-4xl font-bold text-center text-primary mb-4">11+ MODULES</h3>
-                  <p className="text-center text-foreground/80 text-sm leading-relaxed">
-                    Epsilon's modules blend mystery, intellect, and innovation into a unified experience of exploration. Each challenge pushes creative and analytical limits across science, technology, and logic. Together, they form the ultimate test of curiosity and human potential.
-                  </p>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
 
