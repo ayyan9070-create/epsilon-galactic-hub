@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import { Calendar, Users, Award, ExternalLink } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import heroNebula from "@/assets/hero-nebula.jpg";
 import { Particles } from "@/components/Particles";
 
@@ -14,7 +14,7 @@ export default function Home() {
       
       {/* Hero Section */}
       <section className="relative h-screen w-full flex items-center overflow-hidden">
-        {/* Background Image */}
+        {/* Background Image - No overlay */}
         <div 
           className="absolute inset-0 z-0"
           style={{
@@ -23,18 +23,18 @@ export default function Home() {
             backgroundPosition: 'center',
           }}
         />
-        
+
         {/* Content */}
         <div className="relative z-10 w-full h-full flex items-center">
-          <div className="container mx-auto px-8 md:px-12 lg:px-20">
-            <div className="flex flex-col md:flex-row items-start justify-between w-full gap-8">
+          <div className="container mx-auto px-8 md:px-16 lg:px-24">
+            <div className="flex flex-col md:flex-row items-start justify-between w-full">
               {/* Left side - Title */}
-              <div className="space-y-2 md:space-y-4">
+              <div className="space-y-2 md:space-y-4 max-w-3xl">
                 <h1 
                   className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-none"
                   style={{
-                    color: 'rgb(255, 255, 255)',
-                    textShadow: '0 0 30px rgba(167, 139, 250, 0.4)',
+                    color: '#FFFFFF',
+                    textShadow: '0 0 20px rgba(167, 139, 250, 0.3)',
                     fontWeight: 900,
                     letterSpacing: '0.05em'
                   }}
@@ -44,7 +44,7 @@ export default function Home() {
                 <p 
                   className="text-xl md:text-2xl lg:text-3xl"
                   style={{
-                    color: 'rgb(255, 255, 255)',
+                    color: '#FFFFFF',
                     fontWeight: 400,
                     letterSpacing: '0.1em'
                   }}
@@ -54,11 +54,11 @@ export default function Home() {
               </div>
               
               {/* Right side - Dates and CTA */}
-              <div className="flex-shrink-0 text-right space-y-2 mt-auto md:mt-0">
+              <div className="flex-shrink-0 text-right space-y-2 mt-8 md:mt-0">
                 <div 
                   className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold"
                   style={{
-                    color: 'rgb(255, 255, 255)',
+                    color: '#FFFFFF',
                     fontWeight: 700,
                     letterSpacing: '0.08em'
                   }}
@@ -68,17 +68,17 @@ export default function Home() {
                 <div 
                   className="text-lg md:text-xl lg:text-2xl"
                   style={{
-                    color: 'rgb(255, 255, 255)',
+                    color: '#FFFFFF',
                     letterSpacing: '0.15em',
                     fontWeight: 400
                   }}
                 >
                   JANUARY 2026
                 </div>
-                <div className="pt-3">
+                <div className="pt-4">
                   <Button 
                     size="lg" 
-                    className="bg-background/20 hover:bg-background/30 border border-white/30 text-white px-8 py-5 text-base backdrop-blur-sm transition-all rounded-lg"
+                    className="bg-white/10 hover:bg-white/20 border border-white/30 text-white px-8 py-5 text-base backdrop-blur-sm transition-all rounded-lg"
                     onClick={() => navigate("/register")}
                     style={{
                       fontWeight: 500,
@@ -93,7 +93,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
 
       {/* CTA Section */}
       <section className="py-20">
