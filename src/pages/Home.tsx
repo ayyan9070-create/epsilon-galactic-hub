@@ -12,41 +12,42 @@ export default function Home() {
       {/* Particles Background */}
       <Particles />
       
-      {/* Hero Section */}
-      <section className="relative h-screen w-full flex items-center overflow-hidden">
-        {/* Background Image - No overlay */}
-        <div 
-          className="absolute inset-0 z-0"
-          style={{
-            backgroundImage: `url(${heroNebula})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
-        />
+      {/* Space Header Background */}
+      <div 
+        className="h-48 w-full"
+        style={{
+          backgroundImage: `url(${heroNebula})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      />
 
+      {/* Hero Section with Dark Background */}
+      <section className="relative min-h-screen w-full flex items-center bg-black">
         {/* Content */}
-        <div className="relative z-10 w-full h-full flex items-center">
+        <div className="relative z-10 w-full py-20">
           <div className="container mx-auto px-8 md:px-16 lg:px-24">
-            <div className="flex flex-col md:flex-row items-start justify-between w-full">
+            <div className="flex flex-col md:flex-row items-start justify-between w-full gap-12">
               {/* Left side - Title */}
-              <div className="space-y-2 md:space-y-4 max-w-3xl">
+              <div className="space-y-4 md:space-y-6 max-w-3xl">
                 <h1 
-                  className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-none"
+                  className="text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black leading-none"
                   style={{
-                    color: '#FFFFFF',
-                    textShadow: '0 0 20px rgba(167, 139, 250, 0.3)',
+                    background: 'linear-gradient(135deg, #b8a7e8 0%, #9b87d4 100%)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
                     fontWeight: 900,
-                    letterSpacing: '0.05em'
+                    letterSpacing: '0.02em'
                   }}
                 >
                   EPSILON VI
                 </h1>
                 <p 
-                  className="text-xl md:text-2xl lg:text-3xl"
+                  className="text-xl md:text-2xl lg:text-3xl text-white"
                   style={{
-                    color: '#FFFFFF',
                     fontWeight: 400,
-                    letterSpacing: '0.1em'
+                    letterSpacing: '0.15em'
                   }}
                 >
                   BEYOND THE HORIZON
@@ -54,21 +55,19 @@ export default function Home() {
               </div>
               
               {/* Right side - Dates and CTA */}
-              <div className="flex-shrink-0 text-right space-y-2 mt-8 md:mt-0">
+              <div className="flex-shrink-0 text-right space-y-3">
                 <div 
-                  className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold"
+                  className="text-5xl md:text-6xl lg:text-7xl font-bold text-white"
                   style={{
-                    color: '#FFFFFF',
                     fontWeight: 700,
-                    letterSpacing: '0.08em'
+                    letterSpacing: '0.05em'
                   }}
                 >
                   16 | 17 | 18
                 </div>
                 <div 
-                  className="text-lg md:text-xl lg:text-2xl"
+                  className="text-xl md:text-2xl text-white"
                   style={{
-                    color: '#FFFFFF',
                     letterSpacing: '0.15em',
                     fontWeight: 400
                   }}
@@ -78,10 +77,10 @@ export default function Home() {
                 <div className="pt-4">
                   <Button 
                     size="lg" 
-                    className="bg-white/10 hover:bg-white/20 border border-white/30 text-white px-8 py-5 text-base backdrop-blur-sm transition-all rounded-lg"
+                    className="bg-white/90 hover:bg-white text-black px-8 py-6 text-base font-medium rounded-lg transition-all"
                     onClick={() => navigate("/register")}
                     style={{
-                      fontWeight: 500,
+                      fontWeight: 600,
                       letterSpacing: '0.05em'
                     }}
                   >
