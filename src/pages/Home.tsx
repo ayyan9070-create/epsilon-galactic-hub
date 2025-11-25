@@ -24,32 +24,29 @@ export default function Home() {
           }}
         />
         
-        {/* Minimal Gradient Overlay */}
-        <div className="absolute inset-0 z-0 bg-gradient-to-b from-transparent via-transparent to-background/40" />
-
         {/* Content */}
         <div className="relative z-10 w-full h-full flex items-center">
-          <div className="container mx-auto px-6 md:px-12 lg:px-16">
-            <div className="flex flex-col md:flex-row items-start justify-between w-full">
+          <div className="container mx-auto px-8 md:px-12 lg:px-20">
+            <div className="flex flex-col md:flex-row items-start justify-between w-full gap-8">
               {/* Left side - Title */}
-              <div className="space-y-4 md:space-y-6 flex-1">
+              <div className="space-y-2 md:space-y-4">
                 <h1 
-                  className="text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black tracking-wider leading-none"
+                  className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-none"
                   style={{
-                    color: 'rgba(220, 220, 240, 0.95)',
-                    textShadow: '0 0 40px rgba(167, 139, 250, 0.6), 0 0 80px rgba(167, 139, 250, 0.4)',
+                    color: 'rgb(255, 255, 255)',
+                    textShadow: '0 0 30px rgba(167, 139, 250, 0.4)',
                     fontWeight: 900,
-                    letterSpacing: '0.1em'
+                    letterSpacing: '0.05em'
                   }}
                 >
                   EPSILON VI
                 </h1>
                 <p 
-                  className="text-lg md:text-xl lg:text-2xl xl:text-3xl tracking-widest"
+                  className="text-xl md:text-2xl lg:text-3xl"
                   style={{
-                    color: 'rgba(220, 220, 240, 0.9)',
-                    fontWeight: 300,
-                    letterSpacing: '0.15em'
+                    color: 'rgb(255, 255, 255)',
+                    fontWeight: 400,
+                    letterSpacing: '0.1em'
                   }}
                 >
                   BEYOND THE HORIZON
@@ -57,30 +54,31 @@ export default function Home() {
               </div>
               
               {/* Right side - Dates and CTA */}
-              <div className="flex-shrink-0 text-right space-y-3 mt-8 md:mt-0">
+              <div className="flex-shrink-0 text-right space-y-2 mt-auto md:mt-0">
                 <div 
-                  className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-wider"
+                  className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold"
                   style={{
-                    color: 'rgba(220, 220, 240, 0.95)',
+                    color: 'rgb(255, 255, 255)',
                     fontWeight: 700,
-                    letterSpacing: '0.1em'
+                    letterSpacing: '0.08em'
                   }}
                 >
                   16 | 17 | 18
                 </div>
                 <div 
-                  className="text-base md:text-lg lg:text-xl xl:text-2xl tracking-widest"
+                  className="text-lg md:text-xl lg:text-2xl"
                   style={{
-                    color: 'rgba(220, 220, 240, 0.85)',
-                    letterSpacing: '0.2em'
+                    color: 'rgb(255, 255, 255)',
+                    letterSpacing: '0.15em',
+                    fontWeight: 400
                   }}
                 >
                   JANUARY 2026
                 </div>
-                <div className="pt-4">
+                <div className="pt-3">
                   <Button 
                     size="lg" 
-                    className="bg-background/30 hover:bg-background/50 border border-foreground/20 text-foreground px-10 py-6 text-base md:text-lg backdrop-blur-md transition-all rounded-md"
+                    className="bg-background/20 hover:bg-background/30 border border-white/30 text-white px-8 py-5 text-base backdrop-blur-sm transition-all rounded-lg"
                     onClick={() => navigate("/register")}
                     style={{
                       fontWeight: 500,
