@@ -1,7 +1,7 @@
 /*! HTML5 Boilerplate v9.0.1 | MIT License | https://html5boilerplate.com/ */
 
 /* ========================================================================== 
-   Base styles: opinionated defaults
+   Base Styles
    ========================================================================== */
 html {
   color: #222;
@@ -48,7 +48,7 @@ textarea {
 }
 
 /* ========================================================================== 
-   Author's custom styles
+   Custom Styles
    ========================================================================== */
 
 /* -----------------------------
@@ -66,7 +66,7 @@ textarea {
   animation: marquee 15s linear infinite;
   font-size: 2rem;
   font-weight: bold;
-  color: #d8b4fe; /* gradient via text in React */
+  color: #d8b4fe;
 }
 
 @keyframes marquee {
@@ -105,13 +105,16 @@ textarea {
 }
 
 /* -----------------------------
-   Gallery + Executive Body Cards
+   Frosted Glass Cards
    ----------------------------- */
 .frosted-glass {
   backdrop-filter: blur(15px);
   background: rgba(255, 255, 255, 0.05);
 }
 
+/* -----------------------------
+   Text Glow
+   ----------------------------- */
 .text-glow {
   text-shadow: 0 0 8px #fff, 0 0 16px #d8b4fe;
 }
@@ -121,7 +124,19 @@ textarea {
 }
 
 /* -----------------------------
-   Helper classes
+   Gallery & Card Hover
+   ----------------------------- */
+.card-glow {
+  transition: all 0.3s ease-in-out;
+}
+
+.card-glow:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(133, 55, 246, 0.4);
+}
+
+/* -----------------------------
+   Helper Classes
    ----------------------------- */
 .hidden,
 [hidden] {
@@ -166,74 +181,15 @@ textarea {
 }
 
 /* -----------------------------
-   Responsive / Print
+   Responsive / Print Fix
    ----------------------------- */
-@media only screen and (min-width: 35em) {
-  /* Style adjustments for viewports that meet the condition */
-}
-
-@media print,
-  (-webkit-min-device-pixel-ratio: 1.25),
-  (min-resolution: 1.25dppx),
-  (min-resolution: 120dpi) {
-  /* Style adjustments for high resolution devices */
-}
-
 @media print {
   *,
   *::before,
   *::after {
     background: #fff !important;
     color: #000 !important;
-    /* Black prints faster */
     box-shadow: none !important;
     text-shadow: none !important;
   }
-
-  a,
-  a:visited {
-    text-decoration: underline;
-  }
-
-  a[href]::after {
-    content: " (" attr(href) ")";
-  }
-
-  abbr[title]::after {
-    content: " (" attr(title) ")";
-  }
-
-  /* Don't show links that are fragment identifiers or javascript: */
-  a[href^="#"]::after,
-  a[href^="javascript:"]::after {
-    content: "";
-  }
-
-  pre {
-    white-space: pre-wrap !important;
-  }
-
-  pre,
-  blockquote {
-    border: 1px solid #999;
-    page-break-inside: avoid;
-  }
-
-  tr,
-  img {
-    page-break-inside: avoid;
-  }
-
-  p,
-  h2,
-  h3 {
-    orphans: 3;
-    widows: 3;
-  }
-
-  h2,
-  h3 {
-    page-break-after: avoid;
-  }
 }
-
