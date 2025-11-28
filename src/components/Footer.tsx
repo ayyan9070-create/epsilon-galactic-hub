@@ -35,6 +35,7 @@ export const Footer = () => {
         
         <div className="text-center text-sm text-muted-foreground pt-8 border-t border-border">
           <p>© 2026 Epsilon STEM Olympiad. All rights reserved.</p>
+          <a href="/auth" className="text-xs opacity-30 hover:opacity-100 transition-opacity mt-2 inline-block">Admin</a>
         </div>
       </div>
     </footer>
