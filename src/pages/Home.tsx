@@ -22,8 +22,6 @@ export default function Home() {
           backgroundPosition: "center",
         }}
       >
-        {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black/70 backdrop-blur-[1px]" />
 
         {/* Hero Content */}
         <div className="relative z-10 w-full py-20">
