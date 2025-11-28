@@ -11,6 +11,8 @@ import Modules from "./pages/Modules";
 import BrandAmbassador from "./pages/BrandAmbassador";
 import Contact from "./pages/Contact";
 import Register from "./pages/Register";
+import Auth from "./pages/Auth";
+import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -31,6 +33,8 @@ const App = () => (
               <Route path="/brand-ambassador" element={<BrandAmbassador />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/register" element={<Register />} />
+              <Route path="/auth" element={<Auth />} />
+              <Route path="/admin" element={<Admin />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
