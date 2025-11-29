@@ -18,14 +18,7 @@ const STEM_MODULES = [
   "Euclid's Elements",
   "Terranova",
 ];
-// Hardcoded brand ambassadors
-const brandAmbassadorsList = [
-  "Alice Johnson",
-  "Bob Smith",
-  "Charlie Davis",
-  "Diana Prince",
-  "Ethan Hunt",
-];
+
 
 setBrandAmbassadors(brandAmbassadorsList);
 
@@ -50,7 +43,16 @@ export default function Register() {
     stemModules: [] as string[],
     brandAmbassador: "",
   });
-
+  
+// Hardcoded brand ambassadors
+const brandAmbassadorsList = [
+  "Alice Johnson",
+  "Bob Smith",
+  "Charlie Davis",
+  "Diana Prince",
+  "Ethan Hunt",
+];
+  
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
       setUser(session?.user ?? null);
