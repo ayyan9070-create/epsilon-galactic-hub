@@ -3,7 +3,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Trash2, ExternalLink } from "lucide-react";
+import { Trash2, ExternalLink, Check, X } from "lucide-react";
 
 export function BrandAmbassadorsTable() {
   const [ambassadors, setAmbassadors] = useState<any[]>([]);
@@ -14,6 +14,7 @@ export function BrandAmbassadorsTable() {
   }, []);
 
   const fetchAmbassadors = async () => {
+    setLoading(true);
     try {
       const { data, error } = await supabase
         .from("brand_ambassador_applications")
@@ -32,7 +33,6 @@ export function BrandAmbassadorsTable() {
 
   const handleDelete = async (id: string) => {
     if (!confirm("Are you sure you want to delete this application?")) return;
-
     try {
       const { error } = await supabase
         .from("brand_ambassador_applications")
@@ -40,7 +40,6 @@ export function BrandAmbassadorsTable() {
         .eq("id", id);
 
       if (error) throw error;
-      
       toast.success("Application deleted");
       fetchAmbassadors();
     } catch (error) {
@@ -49,9 +48,22 @@ export function BrandAmbassadorsTable() {
     }
   };
 
-  if (loading) {
-    return <div className="text-white">Loading...</div>;
-  }
+  const handleStatusUpdate = async (id: string, status: "approved" | "rejected") => {
+    try {
+      const { error } = await supabase
+        .from("brand_ambassador_applications")
+        .update({ status })
+        .eq("id", id);
+      if (error) throw error;
+      toast.success(`Application ${status}`);
+      fetchAmbassadors();
+    } catch (error) {
+      console.error("Error updating status:", error);
+      toast.error("Failed to update status");
+    }
+  };
+
+  if (loading) return <div className="text-white">Loading...</div>;
 
   return (
     <div className="rounded-md border border-purple-500/30">
@@ -65,24 +77,21 @@ export function BrandAmbassadorsTable() {
             <TableHead className="text-purple-200">CNIC</TableHead>
             <TableHead className="text-purple-200">Photo</TableHead>
             <TableHead className="text-purple-200">Date</TableHead>
+            <TableHead className="text-purple-200">Status</TableHead>
             <TableHead className="text-purple-200 text-right">Actions</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
-          {ambassadors.map((ambassador) => (
-            <TableRow key={ambassador.id} className="border-purple-500/30 hover:bg-slate-700/50">
-              <TableCell className="text-white">{ambassador.name}</TableCell>
-              <TableCell className="text-white">{ambassador.email}</TableCell>
-              <TableCell className="text-white">{ambassador.phone}</TableCell>
-              <TableCell className="text-white">{ambassador.school}</TableCell>
-              <TableCell className="text-white">{ambassador.cnic}</TableCell>
+          {ambassadors.map((amb) => (
+            <TableRow key={amb.id} className="border-purple-500/30 hover:bg-slate-700/50">
+              <TableCell className="text-white">{amb.name}</TableCell>
+              <TableCell className="text-white">{amb.email}</TableCell>
+              <TableCell className="text-white">{amb.phone}</TableCell>
+              <TableCell className="text-white">{amb.school}</TableCell>
+              <TableCell className="text-white">{amb.cnic}</TableCell>
               <TableCell>
-                {ambassador.photo_url ? (
-                  <Button 
-                    size="sm" 
-                    variant="ghost" 
-                    onClick={() => window.open(ambassador.photo_url, "_blank")}
-                  >
+                {amb.photo_url ? (
+                  <Button size="sm" variant="ghost" onClick={() => window.open(amb.photo_url, "_blank")}>
                     <ExternalLink className="w-4 h-4" />
                   </Button>
                 ) : (
@@ -90,10 +99,21 @@ export function BrandAmbassadorsTable() {
                 )}
               </TableCell>
               <TableCell className="text-white">
-                {new Date(ambassador.submitted_at).toLocaleDateString()}
+                {new Date(amb.submitted_at).toLocaleDateString()}
               </TableCell>
-              <TableCell className="text-right">
-                <Button size="sm" variant="ghost" onClick={() => handleDelete(ambassador.id)}>
+              <TableCell className="text-white capitalize">{amb.status || "pending"}</TableCell>
+              <TableCell className="text-right flex gap-2 justify-end">
+                {amb.status !== "approved" && (
+                  <Button size="sm" variant="ghost" onClick={() => handleStatusUpdate(amb.id, "approved")}>
+                    <Check className="w-4 h-4 text-green-500" />
+                  </Button>
+                )}
+                {amb.status !== "rejected" && (
+                  <Button size="sm" variant="ghost" onClick={() => handleStatusUpdate(amb.id, "rejected")}>
+                    <X className="w-4 h-4 text-red-500" />
+                  </Button>
+                )}
+                <Button size="sm" variant="ghost" onClick={() => handleDelete(amb.id)}>
                   <Trash2 className="w-4 h-4 text-red-500" />
                 </Button>
               </TableCell>
