@@ -16,38 +16,41 @@ export type Database = {
        BRAND AMBASSADOR APPLICATIONS
       ================================== */
       brand_ambassador_applications: {
-        Row: {
-          id: string;
-          name: string;
-          email: string;
-          phone: string;
-          cnic: string;
-          school: string;
-          photo_url: string | null;
-          submitted_at: string;
-        };
-        Insert: {
-          id?: string;
-          name: string;
-          email: string;
-          phone: string;
-          cnic: string;
-          school: string;
-          photo_url?: string | null;
-          submitted_at?: string;
-        };
-        Update: {
-          id?: string;
-          name?: string;
-          email?: string;
-          phone?: string;
-          cnic?: string;
-          school?: string;
-          photo_url?: string | null;
-          submitted_at?: string;
-        };
-        Relationships: [];
-      };
+  Row: {
+    id: string;
+    name: string;
+    email: string;
+    phone: string;
+    cnic: string;
+    school: string;
+    photo_url: string | null;
+    submitted_at: string;
+    status: "pending" | "approved" | "rejected"; // new field
+  };
+  Insert: {
+    id?: string;
+    name: string;
+    email: string;
+    phone: string;
+    cnic: string;
+    school: string;
+    photo_url?: string | null;
+    submitted_at?: string;
+    status?: "pending" | "approved" | "rejected"; // optional on insert
+  };
+  Update: {
+    id?: string;
+    name?: string;
+    email?: string;
+    phone?: string;
+    cnic?: string;
+    school?: string;
+    photo_url?: string | null;
+    submitted_at?: string;
+    status?: "pending" | "approved" | "rejected"; // optional on update
+  };
+  Relationships: [];
+};
 
       /* ================================
        APPROVED BRAND AMBASSADORS
