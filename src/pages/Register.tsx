@@ -44,14 +44,6 @@ export default function Register() {
     brandAmbassador: "",
   });
   
-// Hardcoded brand ambassadors
-const brandAmbassadorsList = [
-  "Alice Johnson",
-  "Bob Smith",
-  "Charlie Davis",
-  "Diana Prince",
-  "Ethan Hunt",
-];
   
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
