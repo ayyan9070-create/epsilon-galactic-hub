@@ -35,6 +35,13 @@ FOR SELECT
 TO authenticated
 USING (auth.uid() = user_id);
 
+CREATE POLICY "Admins can update applications"
+ON public.brand_ambassador_applications
+FOR UPDATE
+TO authenticated
+USING (public.has_role(auth.uid(), 'admin'))
+WITH CHECK (public.has_role(auth.uid(), 'admin'));
+
 CREATE POLICY "Only admins can manage roles"
 ON public.user_roles
 FOR ALL
