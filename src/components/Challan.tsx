@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { supabase } from "src/integrations/supabase/client.ts";
+import { supabase } from ".../integrations/supabase/client.ts";
 
 export default function Challan() {
 
