@@ -18,6 +18,16 @@ const STEM_MODULES = [
   "Euclid's Elements",
   "Terranova",
 ];
+// Hardcoded brand ambassadors
+const brandAmbassadorsList = [
+  "Alice Johnson",
+  "Bob Smith",
+  "Charlie Davis",
+  "Diana Prince",
+  "Ethan Hunt",
+];
+
+setBrandAmbassadors(brandAmbassadorsList);
 
 // Helper to generate 6-digit team ID
 const generateTeamId = () => Math.floor(100000 + Math.random() * 900000).toString();
@@ -58,6 +68,7 @@ supabase
   .then(({ data, error }) => {
     if (!error && data) setBrandAmbassadors(data.map((b) => b.name));
   });
+
 
     return () => subscription?.unsubscribe();
   }, []);
@@ -277,21 +288,21 @@ supabase
           </div>
 
           {/* Brand Ambassador */}
-          <div>
-            <Label>Brand Ambassador</Label>
-            <select
-              className="w-full border rounded p-2"
-              value={formData.brandAmbassador}
-              onChange={(e) => setFormData({ ...formData, brandAmbassador: e.target.value })}
-            >
-              <option value="">Select Brand Ambassador</option>
-              {brandAmbassadors.map((ba) => (
-                <option key={ba} value={ba}>
-                  {ba}
-                </option>
-              ))}
-            </select>
-          </div>
+<div>
+  <Label>Brand Ambassador</Label>
+  <select
+    className="w-full border rounded p-2"
+    value={formData.brandAmbassador}
+    onChange={(e) => setFormData({ ...formData, brandAmbassador: e.target.value })}
+  >
+    <option value="">Select Brand Ambassador</option>
+    {brandAmbassadors.map((ba) => (
+      <option key={ba} value={ba}>
+        {ba}
+      </option>
+    ))}
+  </select>
+</div>
 
           {/* Fee Display */}
           <div className="p-4 bg-accent/10 border rounded">
