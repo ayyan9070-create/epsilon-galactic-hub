@@ -281,22 +281,24 @@ supabase
             </div>
           </div>
 
-          {/* Brand Ambassador */}
+{/* Brand Ambassador */}
 <div>
   <Label>Brand Ambassador</Label>
-  <select
+  <input
+    type="text"
+    list="brandAmbassadorsList"
     className="w-full border rounded p-2"
+    placeholder="Select or type a brand ambassador"
     value={formData.brandAmbassador}
     onChange={(e) => setFormData({ ...formData, brandAmbassador: e.target.value })}
-  >
-    <option value="">Select Brand Ambassador</option>
+  />
+  <datalist id="brandAmbassadorsList">
     {brandAmbassadors.map((ba) => (
-      <option key={ba} value={ba}>
-        {ba}
-      </option>
+      <option key={ba} value={ba} />
     ))}
-  </select>
+  </datalist>
 </div>
+
 
           {/* Fee Display */}
           <div className="p-4 bg-accent/10 border rounded">
