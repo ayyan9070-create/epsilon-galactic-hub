@@ -26,19 +26,21 @@ export default function BrandAmbassador() {
       const photoUrl = photoFile ? URL.createObjectURL(photoFile) : null;
 
       const { data, error } = await supabase
-        .from("brand_ambassador_applications")
-        .insert([
-          {
-            name: formData.name,
-            email: formData.email,
-            school: formData.school,
-            phone: formData.phone,
-            cnic: formData.cnic,
-            photo_url: photoUrl,
-          },
-        ])
-        .select()
-        .single();
+  .from("brand_ambassador_applications")
+  .insert([
+    {
+      name: formData.name,
+      email: formData.email,
+      school: formData.school,
+      phone: formData.phone,
+      cnic: formData.cnic,
+      photo_url: photoUrl,
+      status: "pending", // ✅ New field
+    },
+  ])
+  .select()
+  .single();
+
 
       if (error) throw error;
 
