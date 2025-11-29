@@ -51,13 +51,13 @@ export default function Register() {
     });
 
     // Fetch approved brand ambassadors
-    supabase
-      .from("brand_ambassadors")
-      .select("name")
-      .eq("status", "approved")
-      .then(({ data, error }) => {
-        if (!error && data) setBrandAmbassadors(data.map((b) => b.name));
-      });
+supabase
+  .from("brand_ambassador_applications")
+  .select("name")
+  .eq("status", "approved") // ✅ Only approved ambassadors
+  .then(({ data, error }) => {
+    if (!error && data) setBrandAmbassadors(data.map((b) => b.name));
+  });
 
     return () => subscription?.unsubscribe();
   }, []);
