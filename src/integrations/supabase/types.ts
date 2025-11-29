@@ -12,81 +12,130 @@ export type Database = {
   };
   public: {
     Tables: {
+      /* ================================
+       BRAND AMBASSADOR APPLICATIONS
+      ================================== */
       brand_ambassador_applications: {
         Row: {
-          cnic: string;
-          email: string;
           id: string;
           name: string;
+          email: string;
           phone: string;
-          photo_url: string | null;
+          cnic: string;
           school: string;
+          photo_url: string | null;
           submitted_at: string;
         };
         Insert: {
-          cnic: string;
-          email: string;
           id?: string;
           name: string;
+          email: string;
           phone: string;
-          photo_url?: string | null;
+          cnic: string;
           school: string;
+          photo_url?: string | null;
           submitted_at?: string;
         };
         Update: {
-          cnic?: string;
-          email?: string;
           id?: string;
           name?: string;
+          email?: string;
           phone?: string;
-          photo_url?: string | null;
+          cnic?: string;
           school?: string;
+          photo_url?: string | null;
           submitted_at?: string;
         };
         Relationships: [];
       };
+
+      /* ================================
+       APPROVED BRAND AMBASSADORS
+      ================================== */
+      brand_ambassadors: {
+        Row: {
+          id: string;
+          name: string;
+          school: string | null;
+          status: "pending" | "approved" | "rejected";
+          created_at: string;
+        };
+        Insert: {
+          id?: string;
+          name: string;
+          school?: string | null;
+          status?: "pending" | "approved" | "rejected";
+          created_at?: string;
+        };
+        Update: {
+          id?: string;
+          name?: string;
+          school?: string | null;
+          status?: "pending" | "approved" | "rejected";
+          created_at?: string;
+        };
+        Relationships: [];
+      };
+
+      /* ================================
+       CONTACT FORM
+      ================================== */
       contacts: {
         Row: {
           id: string;
-          message: string;
           name: string;
           phone: string;
           subject: string;
+          message: string;
           submitted_at: string;
         };
         Insert: {
           id?: string;
-          message: string;
           name: string;
           phone: string;
           subject: string;
+          message: string;
           submitted_at?: string;
         };
         Update: {
           id?: string;
-          message?: string;
           name?: string;
           phone?: string;
           subject?: string;
+          message?: string;
           submitted_at?: string;
         };
         Relationships: [];
       };
+
+      /* ================================
+       REGISTRATIONS TABLE (MAIN)
+      ================================== */
       registrations: {
         Row: {
           id: string;
           created_at: string;
           user_id: string;
-          team_id: string; // 6-digit unique code
+
+          team_id: string; // 6-digit unique
           team_name: string;
           team_leader_name: string;
           team_leader_email: string;
           team_leader_contact: string;
+          team_leader_institute: string;
+
           team_size: number;
-          members: Json[]; // array of { name, email, contact }
+
+          members: Json[]; // { name, email, contact, institute }
+
           modules_selected: { general: string[]; stem: string[] };
+
           brand_ambassador: string | null;
-          status: string | null; // pending, confirmed, paid, etc
+
+          payment_proof: string | null; // image URL
+          challan_total: number | null; // total amount
+
+          status: "pending" | "unpaid" | "paid" | "verified" | null;
           reviewed_at: string | null;
           reviewed_by: string | null;
         };
@@ -94,16 +143,26 @@ export type Database = {
           id?: string;
           created_at?: string;
           user_id: string;
+
           team_id: string;
           team_name: string;
           team_leader_name: string;
           team_leader_email: string;
           team_leader_contact: string;
+          team_leader_institute: string;
+
           team_size: number;
+
           members: Json[];
+
           modules_selected: { general: string[]; stem: string[] };
+
           brand_ambassador?: string | null;
-          status?: string | null;
+
+          payment_proof?: string | null;
+          challan_total?: number | null;
+
+          status?: "pending" | "unpaid" | "paid" | "verified" | null;
           reviewed_at?: string | null;
           reviewed_by?: string | null;
         };
@@ -111,21 +170,66 @@ export type Database = {
           id?: string;
           created_at?: string;
           user_id?: string;
+
           team_id?: string;
           team_name?: string;
           team_leader_name?: string;
           team_leader_email?: string;
           team_leader_contact?: string;
+          team_leader_institute?: string;
+
           team_size?: number;
+
           members?: Json[];
+
           modules_selected?: { general: string[]; stem: string[] };
+
           brand_ambassador?: string | null;
-          status?: string | null;
+
+          payment_proof?: string | null;
+          challan_total?: number | null;
+
+          status?: "pending" | "unpaid" | "paid" | "verified" | null;
           reviewed_at?: string | null;
           reviewed_by?: string | null;
         };
         Relationships: [];
       };
+
+      /* ================================
+       TEAM MEMBERS (optional but recommended)
+      ================================== */
+      team_members: {
+        Row: {
+          id: string;
+          team_id: string;
+          name: string;
+          email: string;
+          contact: string;
+          institute: string;
+        };
+        Insert: {
+          id?: string;
+          team_id: string;
+          name: string;
+          email: string;
+          contact: string;
+          institute: string;
+        };
+        Update: {
+          id?: string;
+          team_id?: string;
+          name?: string;
+          email?: string;
+          contact?: string;
+          institute?: string;
+        };
+        Relationships: [];
+      };
+
+      /* ================================
+       USER ROLES
+      ================================== */
       user_roles: {
         Row: {
           id: string;
@@ -148,9 +252,11 @@ export type Database = {
         Relationships: [];
       };
     };
+
     Views: {
       [_ in never]: never;
     };
+
     Functions: {
       has_role: {
         Args: {
@@ -160,13 +266,13 @@ export type Database = {
         Returns: boolean;
       };
     };
+
     Enums: {
       app_role: "admin" | "user";
     };
+
     CompositeTypes: {
       [_ in never]: never;
     };
   };
 };
-
-export const Constants = {
