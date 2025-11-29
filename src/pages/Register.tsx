@@ -19,9 +19,6 @@ const STEM_MODULES = [
   "Terranova",
 ];
 
-
-setBrandAmbassadors(brandAmbassadorsList);
-
 // Helper to generate 6-digit team ID
 const generateTeamId = () => Math.floor(100000 + Math.random() * 900000).toString();
 
@@ -43,8 +40,7 @@ export default function Register() {
     stemModules: [] as string[],
     brandAmbassador: "",
   });
-  
-  
+
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
       setUser(session?.user ?? null);
@@ -62,7 +58,6 @@ supabase
   .then(({ data, error }) => {
     if (!error && data) setBrandAmbassadors(data.map((b) => b.name));
   });
-
 
     return () => subscription?.unsubscribe();
   }, []);
@@ -281,24 +276,22 @@ supabase
             </div>
           </div>
 
-{/* Brand Ambassador */}
-<div>
-  <Label>Brand Ambassador</Label>
-  <input
-    type="text"
-    list="brandAmbassadorsList"
-    className="w-full border rounded p-2"
-    placeholder="Select or type a brand ambassador"
-    value={formData.brandAmbassador}
-    onChange={(e) => setFormData({ ...formData, brandAmbassador: e.target.value })}
-  />
-  <datalist id="brandAmbassadorsList">
-    {brandAmbassadors.map((ba) => (
-      <option key={ba} value={ba} />
-    ))}
-  </datalist>
-</div>
-
+          {/* Brand Ambassador */}
+          <div>
+            <Label>Brand Ambassador</Label>
+            <select
+              className="w-full border rounded p-2"
+              value={formData.brandAmbassador}
+              onChange={(e) => setFormData({ ...formData, brandAmbassador: e.target.value })}
+            >
+              <option value="">Select Brand Ambassador</option>
+              {brandAmbassadors.map((ba) => (
+                <option key={ba} value={ba}>
+                  {ba}
+                </option>
+              ))}
+            </select>
+          </div>
 
           {/* Fee Display */}
           <div className="p-4 bg-accent/10 border rounded">
@@ -316,3 +309,5 @@ supabase
     </div>
   );
 }
+
+
