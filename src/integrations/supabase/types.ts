@@ -59,6 +59,7 @@ export type Database = {
         Row: {
           id: string;
           name: string;
+          phone: string;
           school: string | null;
           status: "pending" | "approved" | "rejected";
           created_at: string;
@@ -66,6 +67,7 @@ export type Database = {
         Insert: {
           id?: string;
           name: string;
+          phone: string;
           school?: string | null;
           status?: "pending" | "approved" | "rejected";
           created_at?: string;
@@ -73,6 +75,7 @@ export type Database = {
         Update: {
           id?: string;
           name?: string;
+          phone: string;
           school?: string | null;
           status?: "pending" | "approved" | "rejected";
           created_at?: string;
