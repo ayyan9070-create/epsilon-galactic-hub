@@ -75,6 +75,11 @@ All colors MUST be HSL.
     min-height: 100vh;
   }
 
+
+  #lovable-badge {
+  display: none !important;
+  }
+  
   /* Starfield animation */
   @keyframes twinkle {
     0%, 100% { opacity: 0.3; }
