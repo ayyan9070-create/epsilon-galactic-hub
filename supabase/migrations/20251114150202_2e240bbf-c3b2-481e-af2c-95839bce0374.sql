@@ -11,6 +11,15 @@ CREATE TABLE IF NOT EXISTS public.brand_ambassador_applications (
   status TEXT DEFAULT 'pending' CHECK (status IN ('pending', 'approved', 'rejected'))
 );
 
+CREATE TABLE IF NOT EXISTS public.brand_ambassadors (
+  id UUID NOT NULL DEFAULT gen_random_uuid() PRIMARY KEY,
+  name TEXT NOT NULL,
+  school TEXT NOT NULL,
+  phone TEXT NOT NULL,
+  cnic TEXT NOT NULL,
+  submitted_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT now(),
+);
+
 -- Enable RLS
 ALTER TABLE public.brand_ambassador_applications ENABLE ROW LEVEL SECURITY;
 
