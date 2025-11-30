@@ -113,14 +113,14 @@ export default function BrandAmbassador() {
               <Trophy className="w-16 h-16 text-primary mb-4 relative z-10" />
               <h3 className="text-2xl font-bold mb-4 text-primary relative z-10">Bring 10+ Teams</h3>
               <p className="text-foreground/80 leading-relaxed relative z-10">
-                Earn a <span className="text-primary font-semibold">Token of Appreciation</span> + <span className="text-primary font-semibold">Exclusive Gift Prize</span> as a reward for exceptional outreach.
+                Earn a <span className="text-primary font-semibold">Token of Appreciation</span> + <span className="text-primary font-semibold">60% discount on your team</span> as a reward for exceptional outreach.
               </p>
             </div>
             
             <div className="p-8 rounded-xl frosted-glass border-2 border-accent/40 card-glow relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-accent/10 rounded-full -translate-y-16 translate-x-16" />
               <Award className="w-16 h-16 text-accent mb-4 relative z-10" />
-              <h3 className="text-2xl font-bold mb-4 text-accent relative z-10">Bring 5+ Teams</h3>
+              <h3 className="text-2xl font-bold mb-4 text-accent relative z-10">Bring 6+ Teams</h3>
               <p className="text-foreground/80 leading-relaxed relative z-10">
                 Receive an official <span className="text-accent font-semibold">Token of Appreciation</span> recognizing your valuable contribution.
               </p>
