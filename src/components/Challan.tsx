@@ -65,6 +65,24 @@ export const Challan = ({ registration, userId }: ChallanProps) => {
           <div className="space-y-4">
             <div>
               <p className="text-xs font-semibold text-gray-500 uppercase mb-1">
+                Team ID
+              </p>
+              <p className="text-base font-mono font-bold text-purple-700">
+                {registration.team_id}
+              </p>
+            </div>
+
+            <div>
+              <p className="text-xs font-semibold text-gray-500 uppercase mb-1">
+                Team Name
+              </p>
+              <p className="text-base font-semibold text-gray-800">
+                {registration.team_name}
+              </p>
+            </div>
+
+            <div>
+              <p className="text-xs font-semibold text-gray-500 uppercase mb-1">
                 Team Leader Name
               </p>
               <p className="text-base font-semibold text-gray-800">
@@ -78,24 +96,15 @@ export const Challan = ({ registration, userId }: ChallanProps) => {
               </p>
               <p className="text-base text-gray-800">{registration.email}</p>
             </div>
-
-            <div>
-              <p className="text-xs font-semibold text-gray-500 uppercase mb-1">
-                User ID
-              </p>
-              <p className="text-xs font-mono text-gray-600 break-all">
-                {userId}
-              </p>
-            </div>
           </div>
 
           <div className="space-y-4">
             <div>
               <p className="text-xs font-semibold text-gray-500 uppercase mb-1">
-                School/Institution
+                Institute
               </p>
               <p className="text-base font-semibold text-gray-800">
-                {registration.school}
+                {registration.team_leader_institute || registration.school}
               </p>
             </div>
 
@@ -138,9 +147,11 @@ export const Challan = ({ registration, userId }: ChallanProps) => {
             Payment Amount
           </h3>
           <div className="text-center">
-            <p className="text-5xl font-bold text-green-700">PKR 3,000</p>
+            <p className="text-5xl font-bold text-green-700">
+              PKR {registration.total_fee?.toLocaleString() || (registration.team_size * 4000).toLocaleString()}
+            </p>
             <p className="text-sm text-gray-600 mt-2">
-              (Pakistani Rupees Three Thousand Only)
+              ({registration.team_size} members × PKR 4,000 per person)
             </p>
           </div>
         </div>
@@ -151,11 +162,11 @@ export const Challan = ({ registration, userId }: ChallanProps) => {
           <ol className="list-decimal list-inside space-y-2 text-sm text-gray-700">
             <li>Visit any HBL/MCB/Allied Bank branch</li>
             <li>Present this challan to the bank teller</li>
-            <li>Make payment of PKR 3,000</li>
+            <li>Make payment of PKR {registration.total_fee?.toLocaleString() || (registration.team_size * 4000).toLocaleString()}</li>
             <li>Keep the bank receipt as proof of payment</li>
             <li>
-              Email the receipt to{" "}
-              <span className="font-semibold">payments@epsilon.org.pk</span>
+              Upload the receipt on your dashboard at{" "}
+              <span className="font-semibold">epsilon.org.pk/dashboard</span>
             </li>
           </ol>
         </div>

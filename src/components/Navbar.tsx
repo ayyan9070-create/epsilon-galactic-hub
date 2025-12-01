@@ -71,6 +71,18 @@ export const Navbar = () => {
                   {link.label}
                 </Link>
               ))}
+              {user && (
+                <Link
+                  to="/dashboard"
+                  className={`text-sm font-medium transition-all hover:text-primary hover:text-glow ${
+                    location.pathname === "/dashboard"
+                      ? "text-primary text-glow"
+                      : "text-foreground/80"
+                  }`}
+                >
+                  Dashboard
+                </Link>
+              )}
             </div>
 
             {/* Auth Buttons / User Info */}
@@ -136,6 +148,19 @@ export const Navbar = () => {
                   {link.label}
                 </Link>
               ))}
+              {user && (
+                <Link
+                  to="/dashboard"
+                  onClick={() => setIsOpen(false)}
+                  className={`block py-2 text-sm font-medium transition-all ${
+                    location.pathname === "/dashboard"
+                      ? "text-primary text-glow"
+                      : "text-foreground/80"
+                  }`}
+                >
+                  Dashboard
+                </Link>
+              )}
               <div className="pt-3 border-t border-border space-y-2">
                 {user ? (
                   <>

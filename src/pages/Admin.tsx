@@ -7,7 +7,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { toast } from "sonner";
 import { RegistrationsTable } from "@/components/admin/RegistrationsTable";
 import { ContactsTable } from "@/components/admin/ContactsTable";
-import { BrandAmbassadorsTable } from "@/components/admin/BrandAmbassadorsTable";
+import { BrandAmbassadorApproval } from "@/components/admin/BrandAmbassadorApproval";
 import { Download, LogOut } from "lucide-react";
 
 export default function Admin() {
@@ -174,11 +174,11 @@ export default function Admin() {
               <CardHeader>
                 <CardTitle className="text-white">Brand Ambassador Applications</CardTitle>
                 <CardDescription className="text-purple-200">
-                  Review brand ambassador applications
+                  Review and approve brand ambassador applications
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <BrandAmbassadorsTable />
+                <BrandAmbassadorApproval />
               </CardContent>
             </Card>
           </TabsContent>

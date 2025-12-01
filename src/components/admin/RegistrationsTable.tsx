@@ -36,12 +36,13 @@ export function RegistrationsTable() {
     }
   };
 
-  const handleApprove = async (id: string) => {
+  const handleVerifyPayment = async (id: string) => {
     try {
       const { error } = await supabase
         .from("registrations")
         .update({ 
-          status: "approved", 
+          status: "verified",
+          payment_verified: true,
           reviewed_at: new Date().toISOString(),
           reviewed_by: (await supabase.auth.getSession()).data.session?.user.id
         })
@@ -49,20 +50,20 @@ export function RegistrationsTable() {
 
       if (error) throw error;
       
-      toast.success("Registration approved");
+      toast.success("Payment verified");
       fetchRegistrations();
     } catch (error) {
-      console.error("Error approving registration:", error);
-      toast.error("Failed to approve registration");
+      console.error("Error verifying payment:", error);
+      toast.error("Failed to verify payment");
     }
   };
 
-  const handleReject = async (id: string) => {
+  const handleMarkPaid = async (id: string) => {
     try {
       const { error } = await supabase
         .from("registrations")
         .update({ 
-          status: "rejected", 
+          status: "paid",
           reviewed_at: new Date().toISOString(),
           reviewed_by: (await supabase.auth.getSession()).data.session?.user.id
         })
@@ -70,11 +71,11 @@ export function RegistrationsTable() {
 
       if (error) throw error;
       
-      toast.success("Registration rejected");
+      toast.success("Marked as paid");
       fetchRegistrations();
     } catch (error) {
-      console.error("Error rejecting registration:", error);
-      toast.error("Failed to reject registration");
+      console.error("Error marking as paid:", error);
+      toast.error("Failed to mark as paid");
     }
   };
 
@@ -104,7 +105,9 @@ export function RegistrationsTable() {
           email: registration.email,
           name: registration.team_leader_name,
           teamSize: registration.team_size,
-          school: registration.school
+          teamName: registration.team_name,
+          teamId: registration.team_id,
+          totalFee: registration.total_fee
         }
       });
 
@@ -154,49 +157,57 @@ export function RegistrationsTable() {
         <Table>
           <TableHeader>
             <TableRow className="border-purple-500/30 hover:bg-slate-700/50">
+              <TableHead className="text-purple-200">Team ID</TableHead>
               <TableHead className="text-purple-200">Team Leader</TableHead>
               <TableHead className="text-purple-200">Email</TableHead>
-              <TableHead className="text-purple-200">School</TableHead>
               <TableHead className="text-purple-200">Team Size</TableHead>
+              <TableHead className="text-purple-200">Total Fee</TableHead>
+              <TableHead className="text-purple-200">Payment Proof</TableHead>
               <TableHead className="text-purple-200">Status</TableHead>
-              <TableHead className="text-purple-200">Date</TableHead>
               <TableHead className="text-purple-200 text-right">Actions</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {registrations.map((reg) => (
               <TableRow key={reg.id} className="border-purple-500/30 hover:bg-slate-700/50">
+                <TableCell className="text-white font-mono">{reg.team_id}</TableCell>
                 <TableCell className="text-white">{reg.team_leader_name}</TableCell>
                 <TableCell className="text-white">{reg.email}</TableCell>
-                <TableCell className="text-white">{reg.school}</TableCell>
                 <TableCell className="text-white">{reg.team_size}</TableCell>
+                <TableCell className="text-white">PKR {reg.total_fee?.toLocaleString()}</TableCell>
                 <TableCell>
-                  <Badge variant={reg.status === "approved" ? "default" : reg.status === "rejected" ? "destructive" : "secondary"}>
+                  {reg.payment_proof_url ? (
+                    <a href={reg.payment_proof_url} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">
+                      View
+                    </a>
+                  ) : (
+                    <span className="text-gray-500">Not uploaded</span>
+                  )}
+                </TableCell>
+                <TableCell>
+                  <Badge variant={reg.status === "verified" || reg.status === "paid" ? "default" : "secondary"}>
                     {reg.status}
                   </Badge>
                 </TableCell>
-                <TableCell className="text-white">
-                  {new Date(reg.created_at).toLocaleDateString()}
-                </TableCell>
                 <TableCell className="text-right">
                   <div className="flex justify-end gap-2">
-                    <Button size="sm" variant="ghost" onClick={() => openEditDialog(reg)}>
+                    <Button size="sm" variant="ghost" onClick={() => openEditDialog(reg)} title="Edit">
                       <Pencil className="w-4 h-4" />
                     </Button>
-                    <Button size="sm" variant="ghost" onClick={() => handleSendEmail(reg)}>
+                    <Button size="sm" variant="ghost" onClick={() => handleSendEmail(reg)} title="Send Email">
                       <Mail className="w-4 h-4" />
                     </Button>
-                    {reg.status === "pending" && (
-                      <>
-                        <Button size="sm" variant="ghost" onClick={() => handleApprove(reg.id)}>
-                          <Check className="w-4 h-4 text-green-500" />
-                        </Button>
-                        <Button size="sm" variant="ghost" onClick={() => handleReject(reg.id)}>
-                          <X className="w-4 h-4 text-red-500" />
-                        </Button>
-                      </>
+                    {reg.payment_proof_url && !reg.payment_verified && (
+                      <Button size="sm" variant="ghost" onClick={() => handleVerifyPayment(reg.id)} title="Verify Payment">
+                        <Check className="w-4 h-4 text-green-500" />
+                      </Button>
                     )}
-                    <Button size="sm" variant="ghost" onClick={() => handleDelete(reg.id)}>
+                    {!reg.payment_proof_url && (
+                      <Button size="sm" variant="ghost" onClick={() => handleMarkPaid(reg.id)} title="Mark as Paid">
+                        <Check className="w-4 h-4 text-blue-500" />
+                      </Button>
+                    )}
+                    <Button size="sm" variant="ghost" onClick={() => handleDelete(reg.id)} title="Delete">
                       <Trash2 className="w-4 h-4 text-red-500" />
                     </Button>
                   </div>

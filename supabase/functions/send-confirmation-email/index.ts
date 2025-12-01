@@ -11,7 +11,9 @@ interface EmailRequest {
   email: string;
   name: string;
   teamSize: number;
-  school: string;
+  teamName?: string;
+  teamId?: string;
+  totalFee?: number;
 }
 
 const handler = async (req: Request): Promise<Response> => {
@@ -20,7 +22,7 @@ const handler = async (req: Request): Promise<Response> => {
   }
 
   try {
-    const { email, name, teamSize, school }: EmailRequest = await req.json();
+    const { email, name, teamSize, teamName, teamId, totalFee }: EmailRequest = await req.json();
 
     console.log("Sending confirmation email to:", email);
 
@@ -41,14 +43,26 @@ const handler = async (req: Request): Promise<Response> => {
           
           <div style="background: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 8px; margin-bottom: 20px;">
             <p style="margin: 10px 0;"><strong>Team Leader:</strong> ${name}</p>
-            <p style="margin: 10px 0;"><strong>School:</strong> ${school}</p>
+            ${teamName ? `<p style="margin: 10px 0;"><strong>Team Name:</strong> ${teamName}</p>` : ''}
+            ${teamId ? `<p style="margin: 10px 0;"><strong>Team ID:</strong> ${teamId}</p>` : ''}
             <p style="margin: 10px 0;"><strong>Team Size:</strong> ${teamSize} members</p>
+            ${totalFee ? `<p style="margin: 10px 0;"><strong>Total Fee:</strong> PKR ${totalFee.toLocaleString()}</p>` : ''}
           </div>
           
           <div style="background: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 8px; margin-bottom: 20px;">
             <h3 style="margin-top: 0;">Event Details</h3>
             <p style="margin: 10px 0;"><strong>Dates:</strong> 16 | 17 | 18 January 2026</p>
             <p style="margin: 10px 0;"><strong>Theme:</strong> Beyond The Horizon</p>
+          </div>
+          
+          <div style="background: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+            <h3 style="margin-top: 0;">Next Steps</h3>
+            <ol style="margin: 10px 0; padding-left: 20px;">
+              <li style="margin: 5px 0;">Download your payment challan from your dashboard</li>
+              <li style="margin: 5px 0;">Make the payment at your nearest bank</li>
+              <li style="margin: 5px 0;">Upload payment proof on your dashboard</li>
+              <li style="margin: 5px 0;">Wait for admin verification</li>
+            </ol>
           </div>
           
           <p style="text-align: center; margin-top: 30px;">
