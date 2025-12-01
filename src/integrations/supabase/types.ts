@@ -23,6 +23,7 @@ export type Database = {
           phone: string
           photo_url: string | null
           school: string
+          status: string | null
           submitted_at: string
         }
         Insert: {
@@ -33,6 +34,7 @@ export type Database = {
           phone: string
           photo_url?: string | null
           school: string
+          status?: string | null
           submitted_at?: string
         }
         Update: {
@@ -43,6 +45,7 @@ export type Database = {
           phone?: string
           photo_url?: string | null
           school?: string
+          status?: string | null
           submitted_at?: string
         }
         Relationships: []
@@ -76,39 +79,69 @@ export type Database = {
       }
       registrations: {
         Row: {
+          brand_ambassador: string | null
           created_at: string
           email: string
           id: string
+          members: Json | null
+          modules_selected: Json | null
+          payment_proof_url: string | null
+          payment_verified: boolean | null
           reviewed_at: string | null
           reviewed_by: string | null
           school: string
           status: string | null
+          team_id: string | null
+          team_leader_contact: string | null
+          team_leader_institute: string | null
           team_leader_name: string
+          team_name: string | null
           team_size: number
+          total_fee: number | null
           user_id: string
         }
         Insert: {
+          brand_ambassador?: string | null
           created_at?: string
           email: string
           id?: string
+          members?: Json | null
+          modules_selected?: Json | null
+          payment_proof_url?: string | null
+          payment_verified?: boolean | null
           reviewed_at?: string | null
           reviewed_by?: string | null
           school: string
           status?: string | null
+          team_id?: string | null
+          team_leader_contact?: string | null
+          team_leader_institute?: string | null
           team_leader_name: string
+          team_name?: string | null
           team_size: number
+          total_fee?: number | null
           user_id: string
         }
         Update: {
+          brand_ambassador?: string | null
           created_at?: string
           email?: string
           id?: string
+          members?: Json | null
+          modules_selected?: Json | null
+          payment_proof_url?: string | null
+          payment_verified?: boolean | null
           reviewed_at?: string | null
           reviewed_by?: string | null
           school?: string
           status?: string | null
+          team_id?: string | null
+          team_leader_contact?: string | null
+          team_leader_institute?: string | null
           team_leader_name?: string
+          team_name?: string | null
           team_size?: number
+          total_fee?: number | null
           user_id?: string
         }
         Relationships: []

@@ -33,9 +33,10 @@ export default function Register() {
     teamLeaderName: "",
     teamLeaderEmail: "",
     teamLeaderContact: "",
+    teamLeaderInstitute: "",
     teamName: "",
     teamSize: 4,
-    members: Array(4).fill({ name: "", email: "", contact: "" }),
+    members: Array(4).fill({ name: "", email: "", contact: "", institute: "" }),
     generalModules: [] as string[],
     stemModules: [] as string[],
     brandAmbassador: "",
@@ -46,20 +47,20 @@ export default function Register() {
       setUser(session?.user ?? null);
     });
 
-    const { data: subscription } = supabase.auth.onAuthStateChange((_event, session) => {
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
       setUser(session?.user ?? null);
     });
 
     // Fetch approved brand ambassadors
-supabase
-  .from("brand_ambassador_applications")
-  .select("name")
-  .eq("status", "approved") // ✅ Only approved ambassadors
-  .then(({ data, error }) => {
-    if (!error && data) setBrandAmbassadors(data.map((b) => b.name));
-  });
+    supabase
+      .from("brand_ambassador_applications")
+      .select("name")
+      .eq("status", "approved")
+      .then(({ data, error }) => {
+        if (!error && data) setBrandAmbassadors(data.map((b) => b.name));
+      });
 
-    return () => subscription?.unsubscribe();
+    return () => subscription.unsubscribe();
   }, []);
 
   if (!user) {
@@ -113,6 +114,7 @@ supabase
 
     try {
       const teamId = generateTeamId();
+      const totalFee = formData.teamSize * 4000;
 
       const { data, error } = await supabase
         .from("registrations")
@@ -122,13 +124,16 @@ supabase
             team_id: teamId,
             team_name: formData.teamName,
             team_leader_name: formData.teamLeaderName,
-            team_leader_email: formData.teamLeaderEmail,
+            email: formData.teamLeaderEmail,
             team_leader_contact: formData.teamLeaderContact,
+            team_leader_institute: formData.teamLeaderInstitute,
+            school: formData.teamLeaderInstitute,
             team_size: formData.teamSize,
             members: formData.members,
             modules_selected: { general: formData.generalModules, stem: formData.stemModules },
             brand_ambassador: formData.brandAmbassador,
-            registration_status: "pending",
+            total_fee: totalFee,
+            status: "pending",
           },
         ])
         .select()
@@ -158,59 +163,87 @@ supabase
         <h1 className="text-5xl md:text-6xl font-bold mb-6 text-glow text-center">Team Registration</h1>
         <form onSubmit={handleSubmit} className="space-y-6 p-6 bg-card/50 backdrop-blur-sm border border-primary/20 rounded-2xl">
           {/* Team Leader Info */}
-          <div className="space-y-2">
-            <Label>Team Leader Name *</Label>
-            <Input
-              required
-              value={formData.teamLeaderName}
-              onChange={(e) => setFormData({ ...formData, teamLeaderName: e.target.value })}
-            />
-            <Label>Email *</Label>
-            <Input
-              type="email"
-              required
-              value={formData.teamLeaderEmail}
-              onChange={(e) => setFormData({ ...formData, teamLeaderEmail: e.target.value })}
-            />
-            <Label>Contact Number *</Label>
-            <Input
-              type="text"
-              required
-              value={formData.teamLeaderContact}
-              onChange={(e) => setFormData({ ...formData, teamLeaderContact: e.target.value })}
-            />
-            <Label>Team Name *</Label>
-            <Input
-              required
-              value={formData.teamName}
-              onChange={(e) => setFormData({ ...formData, teamName: e.target.value })}
-            />
+          <div className="space-y-4">
+            <h2 className="font-bold text-xl">Team Leader Information</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <Label>Name *</Label>
+                <Input
+                  required
+                  value={formData.teamLeaderName}
+                  onChange={(e) => setFormData({ ...formData, teamLeaderName: e.target.value })}
+                />
+              </div>
+              <div>
+                <Label>Email *</Label>
+                <Input
+                  type="email"
+                  required
+                  value={formData.teamLeaderEmail}
+                  onChange={(e) => setFormData({ ...formData, teamLeaderEmail: e.target.value })}
+                />
+              </div>
+              <div>
+                <Label>Contact Number *</Label>
+                <Input
+                  type="text"
+                  required
+                  value={formData.teamLeaderContact}
+                  onChange={(e) => setFormData({ ...formData, teamLeaderContact: e.target.value })}
+                />
+              </div>
+              <div>
+                <Label>Institute *</Label>
+                <Input
+                  required
+                  value={formData.teamLeaderInstitute}
+                  onChange={(e) => setFormData({ ...formData, teamLeaderInstitute: e.target.value })}
+                />
+              </div>
+            </div>
+            <div>
+              <Label>Team Name *</Label>
+              <Input
+                required
+                value={formData.teamName}
+                onChange={(e) => setFormData({ ...formData, teamName: e.target.value })}
+              />
+            </div>
           </div>
 
           {/* Team Members */}
           <div className="space-y-4">
             <h2 className="font-bold text-xl">Team Members (4–7)</h2>
             {formData.members.map((member, i) => (
-              <div key={i} className="grid grid-cols-3 gap-2">
-                <Input
-                  placeholder="Name"
-                  required
-                  value={member.name}
-                  onChange={(e) => handleMemberChange(i, "name", e.target.value)}
-                />
-                <Input
-                  placeholder="Email"
-                  type="email"
-                  required
-                  value={member.email}
-                  onChange={(e) => handleMemberChange(i, "email", e.target.value)}
-                />
-                <Input
-                  placeholder="Contact"
-                  required
-                  value={member.contact}
-                  onChange={(e) => handleMemberChange(i, "contact", e.target.value)}
-                />
+              <div key={i} className="space-y-2 p-4 rounded-lg bg-card/30 border border-primary/10">
+                <p className="text-sm font-semibold text-primary">Member {i + 1}</p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                  <Input
+                    placeholder="Name"
+                    required
+                    value={member.name}
+                    onChange={(e) => handleMemberChange(i, "name", e.target.value)}
+                  />
+                  <Input
+                    placeholder="Email"
+                    type="email"
+                    required
+                    value={member.email}
+                    onChange={(e) => handleMemberChange(i, "email", e.target.value)}
+                  />
+                  <Input
+                    placeholder="Contact"
+                    required
+                    value={member.contact}
+                    onChange={(e) => handleMemberChange(i, "contact", e.target.value)}
+                  />
+                  <Input
+                    placeholder="Institute"
+                    required
+                    value={member.institute}
+                    onChange={(e) => handleMemberChange(i, "institute", e.target.value)}
+                  />
+                </div>
               </div>
             ))}
             <div className="flex gap-2">
@@ -221,7 +254,7 @@ supabase
                     setFormData({
                       ...formData,
                       teamSize: formData.teamSize + 1,
-                      members: [...formData.members, { name: "", email: "", contact: "" }],
+                      members: [...formData.members, { name: "", email: "", contact: "", institute: "" }],
                     });
                   }}
                 >
