@@ -1,3 +1,5 @@
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
 -- Create brand ambassador applications table (PUBLIC)
 CREATE TABLE IF NOT EXISTS public.brand_ambassador_applications (
   id UUID NOT NULL DEFAULT gen_random_uuid() PRIMARY KEY,
