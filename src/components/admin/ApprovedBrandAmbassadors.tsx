@@ -49,6 +49,7 @@ export function ApprovedBrandAmbassadors() {
             <TableHead className="text-purple-200">Email</TableHead>
             <TableHead className="text-purple-200">School</TableHead>
             <TableHead className="text-purple-200">Phone</TableHead>
+            <TableHead className="text-purple-200">Instagram</TableHead>
             <TableHead className="text-purple-200">CNIC</TableHead>
             <TableHead className="text-purple-200">Photo</TableHead>
             <TableHead className="text-purple-200">Status</TableHead>
@@ -62,6 +63,7 @@ export function ApprovedBrandAmbassadors() {
               <TableCell className="text-white">{amb.email}</TableCell>
               <TableCell className="text-white">{amb.school}</TableCell>
               <TableCell className="text-white">{amb.phone}</TableCell>
+              <TableCell className="text-white">{amb.instagram_handle || "N/A"}</TableCell>
               <TableCell className="text-white">{amb.cnic}</TableCell>
               <TableCell>
                 {amb.photo_url ? (
