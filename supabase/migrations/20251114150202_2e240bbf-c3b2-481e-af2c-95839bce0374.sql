@@ -1,3 +1,4 @@
+-- MUST BE THE FIRST LINE to resolve "syntax error at or near UUID"
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
 -- Create brand ambassador applications table (PUBLIC)
@@ -13,13 +14,14 @@ CREATE TABLE IF NOT EXISTS public.brand_ambassador_applications (
   status TEXT DEFAULT 'pending' CHECK (status IN ('pending', 'approved', 'rejected'))
 );
 
+-- FIX: Removed trailing comma after now()
 CREATE TABLE IF NOT EXISTS public.brand_ambassadors (
-  id UUID NOT NULL DEFAULT gen_random_uuid() PRIMARY KEY,
-  name TEXT NOT NULL,
-  school TEXT NOT NULL,
-  phone TEXT NOT NULL,
-  cnic TEXT NOT NULL, -- <--- 1. Missing comma after this line was the main cause.
-  submitted_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT now() -- <--- 2. Removed the extra comma here.
+  id UUID NOT NULL DEFAULT gen_random_uuid() PRIMARY KEY,
+  name TEXT NOT NULL,
+  school TEXT NOT NULL,
+  phone TEXT NOT NULL,
+  cnic TEXT NOT NULL,
+  submitted_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT now()
 );
 
 -- Enable RLS
@@ -45,6 +47,7 @@ TO authenticated
 USING (public.has_role(auth.uid(), 'admin'));
 
 -- Allow admins to update brand ambassador applications
+-- NOTE: Removed the duplicate policy from the original input.
 CREATE POLICY "Admins can update applications"
 ON public.brand_ambassador_applications
 FOR UPDATE
@@ -88,7 +91,7 @@ ON public.registrations
 FOR SELECT
 USING (auth.uid() = user_id);
 
--- Admin policies for registrations
+-- Admin policies for registrations (these policies will fail until the has_role function exists)
 CREATE POLICY "Admins can view all registrations"
 ON public.registrations
 FOR SELECT
