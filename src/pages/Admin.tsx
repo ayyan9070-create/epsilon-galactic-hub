@@ -8,6 +8,7 @@ import { toast } from "sonner";
 import { RegistrationsTable } from "@/components/admin/RegistrationsTable";
 import { ContactsTable } from "@/components/admin/ContactsTable";
 import { BrandAmbassadorApproval } from "@/components/admin/BrandAmbassadorApproval";
+import { ApprovedBrandAmbassadors } from "@/components/admin/ApprovedBrandAmbassadors";
 import { Download, LogOut } from "lucide-react";
 
 export default function Admin() {
@@ -137,6 +138,9 @@ export default function Admin() {
               Contacts
             </TabsTrigger>
             <TabsTrigger value="ambassadors" className="data-[state=active]:bg-purple-600">
+              BA Applications
+            </TabsTrigger>
+            <TabsTrigger value="approved-ambassadors" className="data-[state=active]:bg-purple-600">
               Brand Ambassadors
             </TabsTrigger>
           </TabsList>
@@ -179,6 +183,20 @@ export default function Admin() {
               </CardHeader>
               <CardContent>
                 <BrandAmbassadorApproval />
+              </CardContent>
+            </Card>
+          </TabsContent>
+
+          <TabsContent value="approved-ambassadors">
+            <Card className="bg-slate-800/50 border-purple-500/30">
+              <CardHeader>
+                <CardTitle className="text-white">Brand Ambassadors</CardTitle>
+                <CardDescription className="text-purple-200">
+                  List of approved brand ambassadors
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <ApprovedBrandAmbassadors />
               </CardContent>
             </Card>
           </TabsContent>
