@@ -13,6 +13,7 @@ export default function BrandAmbassador() {
     school: "",
     phone: "",
     cnic: "",
+    instagram_handle: "",
   });
   const [photoFile, setPhotoFile] = useState<File | null>(null);
   const [loading, setLoading] = useState(false);
@@ -35,7 +36,8 @@ export default function BrandAmbassador() {
       phone: formData.phone,
       cnic: formData.cnic,
       photo_url: photoUrl,
-      status: "pending", // ✅ New field
+      instagram_handle: formData.instagram_handle,
+      status: "pending",
     },
   ])
   .select()
@@ -55,6 +57,7 @@ export default function BrandAmbassador() {
         school: "",
         phone: "",
         cnic: "",
+        instagram_handle: "",
       });
       setPhotoFile(null);
     } catch (error: any) {
@@ -215,6 +218,20 @@ export default function BrandAmbassador() {
                   }
                   required
                   placeholder="XXXXX-XXXXXXX-X"
+                  className="bg-background/50 border-primary/30 focus:border-primary input-glow"
+                />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="instagram_handle">Instagram Handle *</Label>
+                <Input
+                  id="instagram_handle"
+                  value={formData.instagram_handle}
+                  onChange={(e) =>
+                    setFormData({ ...formData, instagram_handle: e.target.value })
+                  }
+                  required
+                  placeholder="@yourhandle"
                   className="bg-background/50 border-primary/30 focus:border-primary input-glow"
                 />
               </div>

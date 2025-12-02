@@ -97,6 +97,7 @@ export function BrandAmbassadorApproval() {
             <TableHead className="text-purple-200">Email</TableHead>
             <TableHead className="text-purple-200">School</TableHead>
             <TableHead className="text-purple-200">Phone</TableHead>
+            <TableHead className="text-purple-200">Instagram</TableHead>
             <TableHead className="text-purple-200">Status</TableHead>
             <TableHead className="text-purple-200">Date</TableHead>
             <TableHead className="text-purple-200 text-right">Actions</TableHead>
@@ -109,6 +110,7 @@ export function BrandAmbassadorApproval() {
               <TableCell className="text-white">{app.email}</TableCell>
               <TableCell className="text-white">{app.school}</TableCell>
               <TableCell className="text-white">{app.phone}</TableCell>
+              <TableCell className="text-white">{app.instagram_handle || "N/A"}</TableCell>
               <TableCell>
                 <Badge variant={app.status === "approved" ? "default" : app.status === "rejected" ? "destructive" : "secondary"}>
                   {app.status || "pending"}

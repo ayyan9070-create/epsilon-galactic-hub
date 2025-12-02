@@ -19,6 +19,7 @@ export type Database = {
           cnic: string
           email: string
           id: string
+          instagram_handle: string | null
           name: string
           phone: string
           photo_url: string | null
@@ -30,6 +31,7 @@ export type Database = {
           cnic: string
           email: string
           id?: string
+          instagram_handle?: string | null
           name: string
           phone: string
           photo_url?: string | null
@@ -41,6 +43,7 @@ export type Database = {
           cnic?: string
           email?: string
           id?: string
+          instagram_handle?: string | null
           name?: string
           phone?: string
           photo_url?: string | null
