@@ -40,6 +40,8 @@ FOR SELECT
 USING (true);
 
 -- Admin policies for brand ambassador applications
+-- COMMENTED OUT TO AVOID DEPENDENCY ERROR (has_role is not yet defined)
+/*
 CREATE POLICY "Admins can view all applications"
 ON public.brand_ambassador_applications
 FOR SELECT
@@ -60,7 +62,7 @@ ON public.brand_ambassador_applications
 FOR DELETE
 TO authenticated
 USING (public.has_role(auth.uid(), 'admin'));
-
+*/
 
 -- Create registrations table (PRIVATE per user)
 CREATE TABLE IF NOT EXISTS public.registrations (
@@ -92,6 +94,8 @@ FOR SELECT
 USING (auth.uid() = user_id);
 
 -- Admin policies for registrations (these policies will fail until the has_role function exists)
+-- COMMENTED OUT TO AVOID DEPENDENCY ERROR (has_role is not yet defined)
+/*
 CREATE POLICY "Admins can view all registrations"
 ON public.registrations
 FOR SELECT
@@ -110,6 +114,7 @@ ON public.registrations
 FOR DELETE
 TO authenticated
 USING (public.has_role(auth.uid(), 'admin'));
+*/
 
 -- Create contacts table (PUBLIC)
 CREATE TABLE IF NOT EXISTS public.contacts (
