@@ -12,12 +12,12 @@ CREATE TABLE IF NOT EXISTS public.brand_ambassador_applications (
 );
 
 CREATE TABLE IF NOT EXISTS public.brand_ambassadors (
-  id UUID NOT NULL DEFAULT gen_random_uuid() PRIMARY KEY,
-  name TEXT NOT NULL,
-  school TEXT NOT NULL,
-  phone TEXT NOT NULL,
-  cnic TEXT NOT NULL,
-  submitted_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT now(),
+  id UUID NOT NULL DEFAULT gen_random_uuid() PRIMARY KEY,
+  name TEXT NOT NULL,
+  school TEXT NOT NULL,
+  phone TEXT NOT NULL,
+  cnic TEXT NOT NULL, -- <--- 1. Missing comma after this line was the main cause.
+  submitted_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT now() -- <--- 2. Removed the extra comma here.
 );
 
 -- Enable RLS
@@ -43,13 +43,6 @@ TO authenticated
 USING (public.has_role(auth.uid(), 'admin'));
 
 -- Allow admins to update brand ambassador applications
-CREATE POLICY "Admins can update applications"
-ON public.brand_ambassador_applications
-FOR UPDATE
-TO authenticated
-USING (public.has_role(auth.uid(), 'admin'))
-WITH CHECK (public.has_role(auth.uid(), 'admin'));
-
 CREATE POLICY "Admins can update applications"
 ON public.brand_ambassador_applications
 FOR UPDATE
